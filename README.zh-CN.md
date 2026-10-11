@@ -16,7 +16,7 @@
 
 </div>
 
-![同一份三季度报告：左边是 AI 默认做出来的页面，右边是 Neatly 做的](docs/compare.png)
+![同一个数据看板：左边是 AI 默认做出来的，右边是 Neatly 做的](docs/compare.png)
 
 ```bash
 npx skills add kehaoran-ai/neatly

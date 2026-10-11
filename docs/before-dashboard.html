@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Before: dashboard</title>
+<!-- Reference page for comparison images: the Fieldnote dashboard in the usual AI style. Not a Neatly page. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+*{box-sizing:border-box;margin:0}body{font-family:Inter,sans-serif;background:#0b0a1f;color:#e0e7ff;display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+.side{background:linear-gradient(180deg,#1e1b4b,#0f0c29);padding:28px 18px;border-right:1px solid rgba(167,139,250,.2)}
+.logo{font-weight:800;font-size:20px;background:linear-gradient(90deg,#c084fc,#60a5fa);-webkit-background-clip:text;color:transparent;margin-bottom:28px}
+.side a{display:block;padding:11px 14px;border-radius:12px;color:#a5b4fc;font-size:14px;font-weight:500;margin-bottom:4px}
+.side a.on{background:linear-gradient(90deg,#7c3aed,#2563eb);color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.5)}
+main{padding:32px 40px;background:radial-gradient(circle at 80% 0%,rgba(124,58,237,.35),transparent 40%)}
+h1{font-size:30px;font-weight:800}h1 span{background:linear-gradient(90deg,#f0abfc,#93c5fd);-webkit-background-clip:text;color:transparent}
+.hi{color:#a5b4fc;margin-top:6px;font-size:14px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px}
+.k{padding:20px;border-radius:18px;background:rgba(49,46,129,.45);border:1px solid rgba(167,139,250,.3);backdrop-filter:blur(12px);box-shadow:0 0 30px rgba(124,58,237,.25)}
+.k .i{font-size:22px}.k p{margin-top:10px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#a5b4fc;font-weight:600}
+.k b{display:block;margin-top:6px;font-size:30px;font-weight:800;background:linear-gradient(90deg,#f0abfc,#93c5fd);-webkit-background-clip:text;color:transparent}
+.k em{font-style:normal;font-size:12px;color:#34d399;font-weight:700}
+.row{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-top:18px}
+.panel{padding:22px;border-radius:18px;background:rgba(30,27,75,.7);border:1px solid rgba(167,139,250,.25);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.panel h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd}
+.chart{height:220px;margin-top:16px;border-radius:12px;background:linear-gradient(180deg,rgba(168,85,247,.35),rgba(59,130,246,0));clip-path:polygon(0 85%,10% 80%,20% 75%,30% 68%,40% 62%,50% 52%,60% 40%,70% 32%,80% 22%,90% 15%,100% 8%,100% 100%,0 100%)}
+.src div{display:flex;justify-content:space-between;margin-top:14px;font-size:14px}.src i{display:block;height:8px;border-radius:9px;margin-top:6px;background:linear-gradient(90deg,#a855f7,#3b82f6);box-shadow:0 0 12px rgba(168,85,247,.7)}
+</style></head><body>
+<nav class="side"><div class="logo">✨ Fieldnote</div><a class="on">🏠 Overview</a><a>👥 Sign-ups</a><a>⚡ Activation</a><a>🔁 Retention</a><a>💰 Revenue</a><a>🧪 Experiments</a><a>🔔 Alerts</a></nav>
+<main>
+<h1>Welcome back, Mia! 👋 <span>Your growth is on fire</span> 🔥</h1><p class="hi">Here's what's happening with your amazing product today.</p>
+<div class="kpis">
+<div class="k"><div class="i">✍️</div><p>Weekly Writers</p><b>9,700</b><em>▲ 15.5%</em></div>
+<div class="k"><div class="i">🚀</div><p>New Sign-ups</p><b>3,204</b><em>▲ 8.6%</em></div>
+<div class="k"><div class="i">🎯</div><p>Activation</p><b>41%</b><em>▲ 5 pts</em></div>
+<div class="k"><div class="i">💎</div><p>Revenue</p><b>$48.2k</b><em>▲ 11.2%</em></div>
+</div>
+<div class="row"><div class="panel"><h3>📈 Weekly Writers Growth</h3><div class="chart"></div></div>
+<div class="panel src"><h3>🌐 Traffic Sources</h3><div>Search<span>38%</span></div><i style="width:38%"></i><div>Shared maps<span>24%</span></div><i style="width:24%"></i><div>Referral<span>17%</span></div><i style="width:17%"></i><div>Direct<span>13%</span></div><i style="width:13%"></i></div></div>
+</main></body></html>

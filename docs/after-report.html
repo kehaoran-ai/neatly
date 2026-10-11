@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>After: the Q3 review, first screen</title>
+<!-- Reference page for comparison images: the same Q3 review as docs/before.html,
+     composed so the first screen carries the finding, the numbers and the chart. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap">
+<link rel="stylesheet" href="../skills/neatly/neatly.css">
+<style>
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 520px; gap: 56px; align-items: center; padding: 64px 0 40px; }
+.hero h1 { font-size: 44px; line-height: 52px; }
+.hero .nt-lede { margin-top: 20px; }
+.hero .nt-figure { margin: 0; }
+.hero .nt-metrics { margin: 0; }
+</style>
+<script src="../skills/neatly/neatly.js"></script>
+</head>
+<body>
+<header class="nt-topbar">
+  <div class="nt-wrap nt-row">
+    <a class="nt-brand" href="#">Fieldnote</a>
+    <span class="nt-faint nt-small">Product review</span>
+    <span class="nt-grow"></span>
+    <span class="nt-label">Q3 · 2026</span>
+  </div>
+</header>
+<main class="nt-wrap">
+  <section class="hero">
+    <div>
+      <div class="nt-kicker"><b>Q3</b>Product review</div>
+      <h1>Activation doubled in Q3 after we <span class="nt-mark">shortened onboarding</span></h1>
+      <p class="nt-lede">New accounts now start with three starter notes and one question, instead of an empty workspace. Week-one activation went from 22% to 41%.</p>
+      <div class="nt-byline"><span class="nt-avatar">MC</span><span class="nt-avatar">JR</span><span><b>Mia Chen</b> and <b>Jonas Reyes</b><br><span class="nt-faint">Product · 12 October 2026</span></span></div>
+    </div>
+    <figure class="nt-figure">
+      <div class="nt-frame nt-chart-frame">
+        <div class="nt-chart-head nt-row"><b>Weekly activation</b><span class="nt-grow"></span><div class="nt-legend"><span><i class="is-accent"></i>2026</span><span><i class="is-faint"></i>2025</span></div></div>
+        <svg class="nt-chart" data-chart="line" data-height="250" data-unit="%"
+          data-series='[[18,19,17,20,19,21,20,22,21,20,23,22,24],[20,21,20,22,21,23,22,30,34,36,39,40,41]]'
+          data-labels='["Jul 6","","Jul 20","","Aug 3","","Aug 17","","Aug 31","","Sep 14","","Sep 28"]' data-accent="1"></svg>
+      </div>
+      <figcaption><b>Fig. 1</b>The new flow reached everyone on 24 August.</figcaption>
+    </figure>
+  </section>
+  <section class="nt-metrics" aria-label="Headline numbers">
+    <div class="nt-metric"><b>41%</b><span>Activated in week one</span><span class="nt-delta is-good">+19 pts</span></div>
+    <div class="nt-metric"><b>3:40</b><span>Time to first note</span><span class="nt-delta is-good">−62%</span></div>
+    <div class="nt-metric"><b>58%</b><span>Still writing in week two</span><span class="nt-delta is-good">+11 pts</span></div>
+    <div class="nt-metric"><b>−34%</b><span>Onboarding tickets</span><span class="nt-delta is-good">vs Q2</span></div>
+  </section>
+</main>
+</body>
+</html>

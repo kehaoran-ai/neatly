@@ -16,7 +16,7 @@ Reports, slide decks, dashboards, landing pages and docs, in one calm visual sys
 
 </div>
 
-![The same Q3 report: the usual AI page on the left, the Neatly page on the right](docs/compare.png)
+![The same dashboard: the usual AI version on the left, the Neatly version on the right](docs/compare.png)
 
 ```bash
 npx skills add kehaoran-ai/neatly
