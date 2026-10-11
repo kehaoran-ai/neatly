@@ -1,0 +1,879 @@
+<!doctype html>
+<!-- Neatly page: your content goes in the body element, which opens on line 725. Everything above it is the design system: leave it as it is, except the title. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fieldnote Q3 product review</title>
+<meta name="description" content="A Neatly report layout example.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap">
+<style>
+/* neatly.css:start */
+/* ==========================================================================
+   Neatly · neatly.css
+   One visual language for HTML pages made with AI: neutral grey, one sans
+   typeface, a graph-paper canvas, line-art diagrams and exactly one accent colour.
+   Paste the whole file into the page's <style>. No build step, no framework.
+   Change the accent: set --nt-accent on :root. Everything else follows.
+   https://github.com/kehaoran-ai/neatly · MIT
+   ========================================================================== */
+
+/* ---------- 1 · Tokens ---------- */
+:root {
+  /* The one colour. Links, the current item, the focus ring, the one line
+     in a diagram you want people to look at. Never structure, never a big button. */
+  --nt-accent: #2e4bff;
+  --nt-accent-soft: color-mix(in oklab, var(--nt-accent) 9%, #ffffff);
+  --nt-accent-line: color-mix(in oklab, var(--nt-accent) 38%, #ffffff);
+  --nt-accent-ink: color-mix(in oklab, var(--nt-accent) 74%, #000000);
+
+  /* Paper and ink. Structure is always neutral. */
+  --nt-paper: #f6f6f6;        /* page */
+  --nt-surface: #ffffff;      /* cards, tables, the canvas */
+  --nt-sunken: #efefef;       /* wells: code, notes, inputs */
+  --nt-line: #e5e5e5;         /* hairlines, minor grid */
+  --nt-line-strong: #cfcfcf;  /* borders you should notice, major grid */
+  --nt-ink: #171717;          /* text, primary button */
+  --nt-ink-2: #525252;        /* secondary text */
+  --nt-ink-3: #767676;        /* captions, labels, crop marks */
+
+  /* Status, used sparingly */
+  --nt-good: #1f8a4c;
+  --nt-good-soft: #e6f3ea;
+  --nt-bad: #c8372a;
+  --nt-bad-soft: #fbeae7;
+  --nt-warn: #a8670f;
+  --nt-warn-soft: #f8eedc;
+
+  /* Type */
+  /* One sans for everything. No serif display face, no italics in headings. */
+  --nt-sans: "Montserrat", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --nt-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --nt-text-xs: 12px;    --nt-lh-xs: 18px;
+  --nt-text-sm: 13.5px;  --nt-lh-sm: 21px;
+  --nt-text: 15px;       --nt-lh: 26px;
+  --nt-text-lg: 18px;    --nt-lh-lg: 29px;
+  --nt-h3: 18px;         --nt-lh-h3: 26px;
+  --nt-h2: 28px;         --nt-lh-h2: 36px;
+  --nt-h1: 44px;         --nt-lh-h1: 52px;
+  --nt-display: 64px;    --nt-lh-display: 70px;
+
+  /* Space (4px base) */
+  --nt-1: 4px; --nt-2: 8px; --nt-3: 12px; --nt-4: 16px; --nt-5: 24px;
+  --nt-6: 32px; --nt-7: 48px; --nt-8: 64px; --nt-9: 96px;
+  --nt-measure: 66ch;
+  --nt-maxw: 1120px;
+
+  /* Shape */
+  --nt-radius-sm: 6px;
+  --nt-radius: 10px;
+  --nt-radius-lg: 14px;
+  --nt-pill: 999px;
+  --nt-stroke: 1.5px;
+
+  /* Depth: hairline first, then the faintest lift. No glow. */
+  --nt-shadow: 0 1px 0 rgb(23 23 26 / .04), 0 1px 3px rgb(23 23 26 / .06);
+  --nt-shadow-lift: 0 1px 0 rgb(23 23 26 / .05), 0 10px 10px -8px rgb(23 23 26 / .16);
+
+  /* Graph paper */
+  --nt-grid: 16px;
+
+  --nt-ease: cubic-bezier(.2, .7, .2, 1);
+  --nt-fast: 140ms;
+}
+
+/* ---------- 2 · Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { color-scheme: light; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--nt-paper);
+  color: var(--nt-ink);
+  font: 400 var(--nt-text)/var(--nt-lh) var(--nt-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--nt-accent-soft); color: var(--nt-accent-ink); }
+h1, h2, h3, h4 { margin: 0; color: var(--nt-ink); letter-spacing: 0; text-wrap: balance; }
+h1 { font: 700 var(--nt-h1)/var(--nt-lh-h1) var(--nt-sans); }
+h2 { font: 700 var(--nt-h2)/var(--nt-lh-h2) var(--nt-sans); }
+h3 { font: 700 var(--nt-h3)/var(--nt-lh-h3) var(--nt-sans); }
+h4 { font: 600 var(--nt-text)/var(--nt-lh) var(--nt-sans); }
+:is(h1, h2, h3, h4) em { font-style: normal; }
+p { margin: 0 0 var(--nt-4); text-wrap: pretty; }
+a { color: var(--nt-accent-ink); text-decoration: underline; text-decoration-color: var(--nt-accent-line); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 2px solid var(--nt-accent); outline-offset: 2px; border-radius: 4px; }
+strong, b { font-weight: 600; }
+small { font-size: var(--nt-text-xs); }
+img, svg { max-width: 100%; }
+hr { border: 0; border-top: 1px solid var(--nt-line); margin: var(--nt-7) 0; }
+ul, ol { padding-left: 1.25em; margin: 0 0 var(--nt-4); }
+li + li { margin-top: var(--nt-1); }
+li::marker { color: var(--nt-ink-3); }
+code, kbd, pre, samp { font-family: var(--nt-mono); font-size: .875em; }
+:not(pre) > code { background: var(--nt-sunken); padding: 1px 6px; border-radius: var(--nt-radius-sm); }
+kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6px; border: 1px solid var(--nt-line-strong); border-bottom-width: 2px; border-radius: var(--nt-radius-sm); background: var(--nt-surface); font-size: var(--nt-text-xs); line-height: 20px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* ---------- 3 · Type helpers ---------- */
+.nt-display { font: 800 var(--nt-display)/var(--nt-lh-display) var(--nt-sans); }
+.nt-lede { font-size: var(--nt-text-lg); line-height: var(--nt-lh-lg); color: var(--nt-ink-2); max-width: 40ch; }
+.nt-muted { color: var(--nt-ink-2); }
+.nt-faint { color: var(--nt-ink-3); }
+.nt-small { font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); }
+.nt-mono { font-family: var(--nt-mono); }
+.nt-num { font-variant-numeric: tabular-nums; }
+/* Kicker: the small line above a heading. Mono index + plain words. Never all-caps. */
+.nt-kicker { display: inline-flex; align-items: baseline; gap: 10px; font: 500 var(--nt-text-sm)/var(--nt-lh-sm) var(--nt-sans); color: var(--nt-ink-3); margin-bottom: var(--nt-3); }
+.nt-kicker b { font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-2); }
+/* Highlighter for the one phrase that matters */
+.nt-mark { background: linear-gradient(transparent 58%, var(--nt-accent-soft) 58%); color: inherit; padding: 0 2px; }
+.nt-prose { max-width: var(--nt-measure); }
+.nt-prose h2 { margin: var(--nt-8) 0 var(--nt-4); }
+.nt-prose h3 { margin: var(--nt-6) 0 var(--nt-2); }
+.nt-prose > :first-child { margin-top: 0; }
+
+/* ---------- 4 · Layout ---------- */
+.nt-wrap { max-width: var(--nt-maxw); margin: 0 auto; padding-inline: var(--nt-6); }
+.nt-wrap.is-wide { max-width: 1320px; }
+.nt-section { padding-block: var(--nt-9); }
+.nt-split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--nt-7); align-items: center; }
+.nt-cols { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: var(--nt-5); }
+.nt-row { display: flex; align-items: center; gap: var(--nt-3); flex-wrap: wrap; }
+.nt-stack > * + * { margin-top: var(--nt-4); }
+.nt-rule { height: 1px; background: var(--nt-line); border: 0; margin: var(--nt-6) 0; }
+@media (max-width: 900px) {
+  .nt-split, .nt-cols { grid-template-columns: minmax(0, 1fr); }
+  .nt-section { padding-block: var(--nt-8); }
+}
+@media (max-width: 640px) {
+  :root { --nt-h1: 32px; --nt-lh-h1: 40px; --nt-h2: 24px; --nt-lh-h2: 32px; --nt-display: 44px; --nt-lh-display: 50px; }
+  .nt-wrap { padding-inline: var(--nt-4); }
+}
+
+/* ---------- 5 · Components ---------- */
+/* Card: only when a group of things needs a frame. Not every block. */
+.nt-card { background: var(--nt-surface); border: 1px solid var(--nt-line); border-radius: var(--nt-radius); padding: var(--nt-5); box-shadow: var(--nt-shadow); }
+.nt-card--flat { box-shadow: none; }
+.nt-card--featured { border-color: var(--nt-accent); box-shadow: 0 0 0 1px var(--nt-accent), var(--nt-shadow-lift); }
+
+/* Buttons: ink is the primary action. One per screen. The accent is not a button colour. */
+.nt-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--nt-radius-sm); border: 1px solid var(--nt-line-strong); background: var(--nt-surface); color: var(--nt-ink); font: 600 var(--nt-text-sm)/1 var(--nt-sans); text-decoration: none; cursor: pointer; white-space: nowrap; box-shadow: var(--nt-shadow); transition: background var(--nt-fast) var(--nt-ease), transform var(--nt-fast) var(--nt-ease), border-color var(--nt-fast); }
+.nt-btn:hover { background: var(--nt-sunken); text-decoration: none; }
+.nt-btn:active { transform: translateY(1px); }
+.nt-btn--primary { background: var(--nt-ink); border-color: var(--nt-ink); color: #fff; }
+.nt-btn--primary:hover { background: #2e2e2e; }
+.nt-btn--quiet { background: transparent; border-color: transparent; box-shadow: none; }
+.nt-btn--quiet:hover { background: var(--nt-sunken); }
+.nt-btn--sm { height: 32px; padding: 0 12px; font-size: var(--nt-text-xs); }
+.nt-btn--lg { height: 48px; padding: 0 24px; font-size: var(--nt-text); }
+.nt-btn svg { width: 16px; height: 16px; }
+
+/* Tag: the only pill. */
+.nt-tag { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: var(--nt-pill); background: var(--nt-sunken); color: var(--nt-ink-2); font: 500 var(--nt-text-xs)/1 var(--nt-sans); white-space: nowrap; }
+.nt-tag--accent { background: var(--nt-accent-soft); color: var(--nt-accent-ink); }
+.nt-tag--good { background: var(--nt-good-soft); color: var(--nt-good); }
+.nt-tag--bad { background: var(--nt-bad-soft); color: var(--nt-bad); }
+.nt-tag--warn { background: var(--nt-warn-soft); color: var(--nt-warn); }
+.nt-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; }
+
+/* Label: a short framed tag for versions, IDs, steps */
+.nt-label { display: inline-flex; align-items: center; height: 22px; padding: 0 7px; border: 1px solid var(--nt-line-strong); border-radius: var(--nt-radius-sm); background: var(--nt-surface); font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-2); white-space: nowrap; }
+.nt-label.is-current { border-color: var(--nt-accent); color: var(--nt-accent-ink); background: var(--nt-accent-soft); }
+
+/* Note: a sunken block for conclusions and warnings. No coloured left bar. */
+.nt-note { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; background: var(--nt-sunken); border-radius: var(--nt-radius); padding: var(--nt-4) var(--nt-5); font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); margin: var(--nt-5) 0; }
+.nt-note > b:first-child { font-weight: 600; white-space: nowrap; }
+.nt-note > :last-child { margin-bottom: 0; }
+.nt-note--accent { background: var(--nt-accent-soft); color: var(--nt-accent-ink); }
+.nt-note--bad { background: var(--nt-bad-soft); color: #7d2117; }
+.nt-note--warn { background: var(--nt-warn-soft); color: #6d430a; }
+
+/* Big numbers */
+.nt-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid var(--nt-line); border-bottom: 1px solid var(--nt-line); margin: var(--nt-6) 0; }
+.nt-metric { padding: var(--nt-5) var(--nt-5) var(--nt-5) 0; }
+.nt-metric + .nt-metric { padding-left: var(--nt-5); border-left: 1px solid var(--nt-line); }
+.nt-metric b { display: block; font: 700 36px/1.1 var(--nt-sans); font-variant-numeric: tabular-nums; }
+.nt-metric span { display: block; margin-top: 8px; font-size: var(--nt-text-sm); color: var(--nt-ink-2); text-wrap: balance; }
+.nt-delta { font: 500 var(--nt-text-xs)/1 var(--nt-sans); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.nt-metric .nt-delta { margin-top: 2px; font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); }
+/* Colour means good or bad, not up or down: a drop in support tickets is .is-good. */
+.nt-delta.is-good, .nt-delta.is-up { color: var(--nt-good); }
+.nt-delta.is-bad, .nt-delta.is-down { color: var(--nt-bad); }
+
+/* Table */
+.nt-table-wrap { overflow-x: auto; border: 1px solid var(--nt-line); border-radius: var(--nt-radius); background: var(--nt-surface); box-shadow: var(--nt-shadow); }
+.nt-table { width: 100%; border-collapse: collapse; font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); font-variant-numeric: tabular-nums; }
+.nt-table th { text-align: left; font-weight: 500; color: var(--nt-ink-3); padding: 10px 16px; border-bottom: 1px solid var(--nt-line); white-space: nowrap; }
+.nt-table td { padding: 12px 16px; border-bottom: 1px solid var(--nt-line); vertical-align: middle; }
+.nt-table tr:last-child td { border-bottom: 0; }
+.nt-table .is-num { text-align: right; }
+.nt-table code { white-space: nowrap; }
+.nt-table tbody tr:hover td { background: #fafafa; }
+
+/* Segmented control */
+.nt-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--nt-sunken); border-radius: var(--nt-radius-sm); }
+.nt-seg button { border: 0; background: transparent; font: 500 var(--nt-text-xs)/1 var(--nt-sans); color: var(--nt-ink-2); padding: 7px 12px; border-radius: 4px; cursor: pointer; }
+.nt-seg button[aria-pressed="true"] { background: var(--nt-surface); color: var(--nt-ink); box-shadow: var(--nt-shadow); }
+
+/* Code block with a header line */
+.nt-code { margin: var(--nt-5) 0; border: 1px solid var(--nt-line); border-radius: var(--nt-radius); background: var(--nt-surface); overflow: hidden; box-shadow: var(--nt-shadow); }
+.nt-code-head { display: flex; align-items: center; gap: 8px; padding: 0 8px 0 14px; height: 38px; border-bottom: 1px solid var(--nt-line); font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-3); background: #fafafa; }
+.nt-code-head .nt-copy { margin-left: auto; }
+.nt-code pre { margin: 0; padding: 14px 16px; overflow-x: auto; font-size: 13.5px; line-height: 22px; color: var(--nt-ink); }
+.nt-code .c { color: var(--nt-ink-3); }
+.nt-code .k { color: var(--nt-accent-ink); }
+.nt-code .s { color: #6a5a1f; }
+.nt-copy { border: 1px solid var(--nt-line); background: var(--nt-surface); color: var(--nt-ink-2); font: 500 12px/1 var(--nt-sans); height: 26px; padding: 0 9px; border-radius: var(--nt-radius-sm); cursor: pointer; }
+.nt-copy:hover { color: var(--nt-ink); border-color: var(--nt-line-strong); }
+
+/* Steps: numbered, with a hairline spine */
+.nt-steps { list-style: none; padding: 0; margin: var(--nt-5) 0; counter-reset: nt-step; }
+.nt-steps > li { position: relative; padding: 0 0 var(--nt-5) 48px; margin: 0; }
+.nt-steps > li::before { counter-increment: nt-step; content: counter(nt-step); position: absolute; left: 0; top: 0; width: 28px; height: 28px; border-radius: 50%; border: var(--nt-stroke) solid var(--nt-ink); background: var(--nt-surface); display: grid; place-items: center; font: 500 13px/1 var(--nt-mono); }
+.nt-steps > li::after { content: ""; position: absolute; left: 14px; top: 34px; bottom: 6px; width: 1px; background: var(--nt-line-strong); }
+.nt-steps > li:last-child::after { display: none; }
+.nt-steps > li.is-current::before { border-color: var(--nt-accent); color: var(--nt-accent-ink); background: var(--nt-accent-soft); }
+.nt-steps h4 { margin: 2px 0 4px; }
+
+/* Details / FAQ */
+.nt-faq { border-top: 1px solid var(--nt-line); }
+.nt-faq details { border-bottom: 1px solid var(--nt-line); }
+.nt-faq summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: var(--nt-4); padding: var(--nt-5) 0; font: 500 var(--nt-text-lg)/1.4 var(--nt-sans); }
+.nt-faq summary::-webkit-details-marker { display: none; }
+.nt-faq summary::after { content: "+"; font: 300 24px/1 var(--nt-sans); color: var(--nt-ink-3); transition: transform var(--nt-fast) var(--nt-ease); }
+.nt-faq details[open] summary::after { transform: rotate(45deg); }
+.nt-faq details > div { padding: 0 0 var(--nt-5); color: var(--nt-ink-2); max-width: var(--nt-measure); }
+
+/* Quote */
+.nt-quote { margin: var(--nt-7) 0; padding: 0; }
+.nt-quote blockquote { margin: 0; font: 600 22px/1.5 var(--nt-sans); text-wrap: balance; }
+.nt-quote figcaption { margin-top: var(--nt-4); font-size: var(--nt-text-sm); color: var(--nt-ink-2); }
+
+/* Avatar initials */
+.nt-avatar { width: 32px; height: 32px; border-radius: 50%; display: inline-grid; place-items: center; background: var(--nt-sunken); border: 1px solid var(--nt-line); font: 600 12px/1 var(--nt-sans); color: var(--nt-ink-2); flex: none; }
+
+/* ---------- 6 · Signature: graph paper, crop marks, line art ---------- */
+/* Graph paper: minor lines every 16px, a stronger line every 80px. Only line art goes on it. */
+.nt-grid {
+  background-color: var(--nt-surface);
+  background-image:
+    linear-gradient(var(--nt-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--nt-line) 1px, transparent 1px),
+    linear-gradient(color-mix(in oklab, var(--nt-line) 45%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--nt-line) 45%, transparent) 1px, transparent 1px);
+  background-size: calc(var(--nt-grid) * 5) calc(var(--nt-grid) * 5), calc(var(--nt-grid) * 5) calc(var(--nt-grid) * 5), var(--nt-grid) var(--nt-grid), var(--nt-grid) var(--nt-grid);
+  background-position: -1px -1px;
+}
+/* Figure with printer's crop marks at the four corners */
+.nt-figure { position: relative; margin: var(--nt-7) 0; padding: 0; }
+.nt-figure > .nt-frame { position: relative; border: 1px solid var(--nt-line); border-radius: 2px; }
+.nt-figure > .nt-frame > svg { display: block; }
+.nt-figure > .nt-frame::before {
+  content: ""; position: absolute; inset: -10px; pointer-events: none;
+  --c: var(--nt-ink-3); --l: 10px;
+  background:
+    linear-gradient(var(--c), var(--c)) top left / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) top left / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) top right / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom left / 1px var(--l) no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / var(--l) 1px no-repeat,
+    linear-gradient(var(--c), var(--c)) bottom right / 1px var(--l) no-repeat;
+}
+.nt-figure figcaption { display: flex; gap: 10px; margin-top: 14px; font-size: var(--nt-text-xs); line-height: var(--nt-lh-xs); color: var(--nt-ink-3); }
+.nt-figure figcaption b { font: 500 var(--nt-text-xs)/var(--nt-lh-xs) var(--nt-mono); color: var(--nt-ink-2); }
+/* Line art: put .nt-line on an <svg>. Shapes become 1.5px ink strokes. Add .is-accent to the one thing that matters. */
+.nt-line { color: var(--nt-ink); overflow: visible; }
+.nt-line :where(path, line, polyline, polygon, rect, circle, ellipse):where(:not([fill])) { fill: none; }
+.nt-line :is(path, line, polyline, polygon, rect, circle, ellipse) { stroke: currentColor; stroke-width: var(--nt-stroke); stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.nt-line .is-accent, .nt-line.is-accent { color: var(--nt-accent); }
+.nt-line .is-faint { color: var(--nt-line-strong); }
+.nt-line .is-paper { fill: var(--nt-surface); }
+.nt-line .is-soft { fill: var(--nt-accent-soft); }
+.nt-line text { stroke: none; fill: currentColor; font: 600 13px var(--nt-sans); }
+.nt-line text.is-mono { font: 500 11px var(--nt-mono); fill: var(--nt-ink-3); }
+.nt-line [stroke-dasharray] { stroke-dasharray: 4 4; }
+/* Diagram node in HTML */
+.nt-node { display: inline-flex; flex-direction: column; gap: 2px; padding: 10px 14px; background: var(--nt-surface); border: var(--nt-stroke) solid var(--nt-ink); border-radius: var(--nt-radius-sm); font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); }
+.nt-node small { color: var(--nt-ink-3); font-size: var(--nt-text-xs); }
+.nt-node.is-accent { border-color: var(--nt-accent); background: var(--nt-accent-soft); color: var(--nt-accent-ink); }
+
+/* ---------- 7 · Charts (drawn by neatly.js into an empty <svg>) ---------- */
+.nt-chart { display: block; width: 100%; overflow: visible; font: 500 11px var(--nt-sans); }
+.nt-chart .axis { stroke: var(--nt-line); stroke-width: 1; }
+.nt-chart .tick { fill: var(--nt-ink-3); font-variant-numeric: tabular-nums; }
+.nt-chart .series { fill: none; stroke: var(--nt-ink); stroke-width: 1.75; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.nt-chart .series.is-accent { stroke: var(--nt-accent); }
+.nt-chart .series.is-faint { stroke: var(--nt-line-strong); stroke-dasharray: 4 4; }
+.nt-chart .area { fill: var(--nt-accent-soft); stroke: none; }
+.nt-chart .bar { fill: var(--nt-line-strong); }
+.nt-chart .bar.is-accent { fill: var(--nt-accent); }
+.nt-chart .dot { fill: var(--nt-surface); stroke: var(--nt-accent); stroke-width: 1.75; }
+.nt-chart .label { fill: var(--nt-ink-2); }
+.nt-spark { display: block; width: 100%; height: 28px; overflow: visible; }
+.nt-spark .series { fill: none; stroke: var(--nt-ink-2); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.nt-spark .series.is-accent { stroke: var(--nt-accent); }
+.nt-spark .area { fill: var(--nt-accent-soft); }
+.nt-legend { display: flex; gap: var(--nt-4); flex-wrap: wrap; font-size: var(--nt-text-xs); color: var(--nt-ink-2); }
+.nt-legend i { display: inline-block; width: 14px; height: 2px; background: var(--nt-ink); vertical-align: middle; margin-right: 6px; }
+.nt-legend i.is-accent { background: var(--nt-accent); }
+.nt-legend i.is-faint { background: var(--nt-line-strong); }
+
+/* ---------- 8 · Page chrome ---------- */
+.nt-grow { flex: 1; }
+.nt-topbar { position: sticky; top: 0; z-index: 10; background: var(--nt-paper); border-bottom: 1px solid var(--nt-line); }
+.nt-topbar > .nt-wrap { height: 56px; flex-wrap: nowrap; }
+.nt-brand { display: inline-flex; align-items: center; gap: 8px; font: 600 15px/1 var(--nt-sans); color: var(--nt-ink); text-decoration: none; white-space: nowrap; }
+.nt-brand::before { content: ""; width: 18px; height: 18px; border: var(--nt-stroke) solid currentColor; border-radius: 5px; background: linear-gradient(var(--nt-accent), var(--nt-accent)) 50% 50% / 6px 6px no-repeat; flex: none; }
+.nt-footer { margin-top: var(--nt-9); border-top: 1px solid var(--nt-line); color: var(--nt-ink-3); font-size: var(--nt-text-sm); }
+.nt-footer > .nt-wrap { min-height: 72px; }
+.nt-footer a { color: var(--nt-ink-2); text-decoration: none; }
+.nt-footer a:hover { color: var(--nt-ink); }
+.nt-wide { max-width: var(--nt-maxw); }
+
+/* ---------- 9 · Layout: report ---------- */
+.nt-report-head { padding: var(--nt-9) 0 var(--nt-2); max-width: 820px; }
+.nt-report-head .nt-lede { margin-top: var(--nt-5); max-width: 46ch; }
+.nt-byline { display: flex; align-items: center; gap: 10px; margin-top: var(--nt-6); font-size: var(--nt-text-sm); line-height: 20px; }
+.nt-byline .nt-avatar + .nt-avatar { margin-left: -8px; box-shadow: 0 0 0 2px var(--nt-paper); }
+.nt-byline > span:last-child { margin-left: 6px; }
+.nt-report { display: grid; grid-template-columns: 200px minmax(0, 680px); gap: var(--nt-8); }
+.nt-toc { position: sticky; top: 80px; align-self: start; display: flex; flex-direction: column; gap: 2px; padding-top: var(--nt-8); font-size: var(--nt-text-sm); }
+.nt-toc-label { font: 500 var(--nt-text-xs)/1 var(--nt-sans); color: var(--nt-ink-3); margin-bottom: var(--nt-3); }
+.nt-toc a { color: var(--nt-ink-2); text-decoration: none; padding: 5px 0 5px 12px; border-left: 1px solid var(--nt-line); }
+.nt-toc a:hover { color: var(--nt-ink); }
+.nt-toc a[aria-current="true"] { color: var(--nt-ink); border-left: 1px solid var(--nt-ink); font-weight: 500; }
+.nt-chart-frame { background: var(--nt-surface); padding: var(--nt-5) var(--nt-5) var(--nt-4); }
+.nt-chart-head { margin-bottom: var(--nt-4); font-size: var(--nt-text-sm); }
+@media (max-width: 1000px) {
+  .nt-report { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .nt-toc { display: none; }
+  .nt-report > [aria-hidden="true"] { display: none; }
+}
+@media (max-width: 640px) {
+  .nt-report-head { padding-top: var(--nt-7); }
+  .nt-metric { padding: var(--nt-4) var(--nt-3) var(--nt-4) 0; }
+  .nt-metric + .nt-metric { padding-left: var(--nt-3); }
+  .nt-metric b { font-size: 28px; }
+  .nt-metrics { grid-template-columns: 1fr 1fr; }
+  .nt-metrics .nt-metric:nth-child(3) { border-left: 0; padding-left: 0; border-top: 1px solid var(--nt-line); }
+  .nt-metrics .nt-metric:nth-child(4) { border-top: 1px solid var(--nt-line); }
+  .nt-figure { margin: var(--nt-6) 0; }
+  .nt-figure > .nt-frame::before { inset: -6px; }
+}
+
+/* ---------- 10 · Layout: deck (16:9 slides, arrows to move, prints one slide per page) ---------- */
+.nt-deck { background: #e6e6e6; overflow: hidden; height: 100vh; }
+.nt-deck .nt-slide { position: fixed; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%) scale(var(--nt-scale, 1)); background: var(--nt-paper); padding: 72px 88px 88px; display: none; flex-direction: column; box-shadow: 0 1px 0 rgb(23 23 26 / .05), 0 10px 10px -8px rgb(23 23 26 / .2); font-size: 21px; line-height: 33px; }
+.nt-deck .nt-slide.is-active { display: flex; }
+.nt-slide h1 { font: 800 72px/80px var(--nt-sans); max-width: 18ch; }
+.nt-slide h2 { font: 700 46px/56px var(--nt-sans); max-width: 22ch; }
+.nt-slide .nt-kicker { font-size: 16px; margin-bottom: 20px; }
+.nt-slide .nt-kicker b { font-size: 14px; }
+.nt-slide .nt-lede { font-size: 24px; line-height: 36px; max-width: 34ch; }
+.nt-slide-body { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.nt-slide-foot { position: absolute; left: 88px; right: 88px; bottom: 32px; display: flex; align-items: center; gap: 12px; padding-top: 14px; border-top: 1px solid var(--nt-line); font: 500 13px/1 var(--nt-sans); color: var(--nt-ink-3); }
+.nt-slide-foot .nt-num { margin-left: auto; font-family: var(--nt-mono); }
+.nt-slide .nt-metric b { font-size: 60px; }
+.nt-slide .nt-chart { font-size: 15px; }
+.nt-slide-body { min-height: 0; }
+.nt-slide .nt-metric span { font-size: 18px; }
+.nt-slide .nt-steps > li { padding-bottom: 28px; }
+.nt-slide .nt-steps h4 { font-size: 21px; font-weight: 700; }
+.nt-progress { position: fixed; left: 0; top: 0; height: 2px; background: var(--nt-accent); transition: width 240ms var(--nt-ease); z-index: 5; }
+.nt-deck-hint { position: fixed; right: 16px; bottom: 14px; font: 500 12px/1 var(--nt-sans); color: var(--nt-ink-3); display: flex; gap: 6px; align-items: center; }
+@media (hover: none) { .nt-deck-hint { display: none; } }
+@media print {
+  @page { size: 1280px 720px; margin: 0; }
+  .nt-deck { background: none; overflow: visible; height: auto; }
+  .nt-deck .nt-slide { display: flex !important; position: relative; left: 0; top: 0; margin: 0; transform: none; box-shadow: none; page-break-after: always; break-after: page; }
+  .nt-progress, .nt-deck-hint { display: none; }
+}
+
+/* ---------- 11 · Layout: dashboard (sidebar + KPIs + panels) ---------- */
+.nt-app { display: grid; grid-template-columns: 232px minmax(0, 1fr); min-height: 100vh; }
+.nt-side { position: sticky; top: 0; height: 100vh; overflow-y: auto; display: flex; flex-direction: column; gap: 2px; padding: var(--nt-4) var(--nt-3); background: var(--nt-surface); border-right: 1px solid var(--nt-line); }
+.nt-side .nt-brand { padding: 8px 10px 20px; }
+.nt-side-label { font: 600 var(--nt-text-xs)/1 var(--nt-sans); color: var(--nt-ink-3); padding: 18px 10px 8px; }
+.nt-side a { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: var(--nt-radius-sm); color: var(--nt-ink-2); font: 500 var(--nt-text-sm)/1.2 var(--nt-sans); text-decoration: none; white-space: nowrap; }
+.nt-side a:hover { background: var(--nt-sunken); color: var(--nt-ink); }
+.nt-side a[aria-current="page"] { background: var(--nt-accent-soft); color: var(--nt-accent-ink); font-weight: 600; }
+.nt-side a svg { width: 16px; height: 16px; flex: none; }
+.nt-side a .nt-count { margin-left: auto; font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-3); }
+.nt-side-foot { margin-top: auto; display: flex; align-items: center; gap: 10px; padding: 12px 10px 4px; border-top: 1px solid var(--nt-line); font-size: var(--nt-text-sm); line-height: 18px; }
+.nt-main { min-width: 0; padding: var(--nt-6) var(--nt-7) var(--nt-8); }
+.nt-main-head { display: flex; align-items: flex-end; gap: var(--nt-4); flex-wrap: wrap; margin-bottom: var(--nt-6); }
+.nt-main-head h1 { font-size: 28px; line-height: 36px; }
+.nt-main-head p { margin: 4px 0 0; color: var(--nt-ink-2); font-size: var(--nt-text-sm); }
+.nt-panel { background: var(--nt-surface); border: 1px solid var(--nt-line); border-radius: var(--nt-radius); min-width: 0; }
+.nt-panel-head { display: flex; align-items: center; gap: var(--nt-3); min-height: 56px; padding: 0 var(--nt-5); border-bottom: 1px solid var(--nt-line); }
+.nt-panel-head h3 { font-size: 15px; line-height: 22px; }
+.nt-panel-body { padding: var(--nt-5); }
+.nt-panel > .nt-table-wrap { border: 0; border-radius: 0 0 var(--nt-radius) var(--nt-radius); box-shadow: none; }
+.nt-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.nt-kpi { min-width: 0; padding: var(--nt-5); }
+.nt-kpi + .nt-kpi { border-left: 1px solid var(--nt-line); }
+.nt-kpi-label { font-size: var(--nt-text-sm); color: var(--nt-ink-2); }
+.nt-kpi-value { display: flex; align-items: baseline; gap: 10px; margin: 6px 0 14px; font: 700 28px/1.1 var(--nt-sans); font-variant-numeric: tabular-nums; }
+.nt-board { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: var(--nt-5); margin-top: var(--nt-5); }
+/* Horizontal bar list: label, value, a thin track */
+.nt-hbar { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 12px; font-size: var(--nt-text-sm); line-height: 20px; }
+.nt-hbar + .nt-hbar { margin-top: 16px; }
+.nt-hbar > span:last-of-type { font-variant-numeric: tabular-nums; color: var(--nt-ink-2); }
+.nt-hbar > i { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--nt-sunken); overflow: hidden; }
+.nt-hbar > i::before { content: ""; display: block; height: 100%; width: var(--v, 50%); background: var(--nt-line-strong); border-radius: 3px; }
+.nt-hbar.is-accent > i::before { background: var(--nt-accent); }
+/* Activity feed */
+.nt-feed { list-style: none; margin: 0; padding: 0; }
+.nt-feed li { display: grid; grid-template-columns: 16px minmax(0, 1fr) auto; gap: 12px; align-items: baseline; padding: 12px 0; margin: 0; border-bottom: 1px solid var(--nt-line); font-size: var(--nt-text-sm); line-height: 20px; }
+.nt-feed li:last-child { border-bottom: 0; padding-bottom: 0; }
+.nt-feed li:first-child { padding-top: 0; }
+.nt-feed .nt-dot { align-self: center; color: var(--nt-line-strong); }
+.nt-feed .is-accent .nt-dot { color: var(--nt-accent); }
+.nt-feed time { font: 500 var(--nt-text-xs)/1 var(--nt-sans); font-variant-numeric: tabular-nums; color: var(--nt-ink-3); white-space: nowrap; }
+@media (max-width: 1180px) {
+  .nt-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .nt-kpi:nth-child(3) { border-left: 0; }
+  .nt-kpi:nth-child(n+3) { border-top: 1px solid var(--nt-line); }
+  .nt-board { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 860px) {
+  .nt-app { grid-template-columns: minmax(0, 1fr); }
+  .nt-side { position: sticky; z-index: 10; height: auto; flex-direction: row; align-items: center; overflow-x: auto; padding: 8px var(--nt-4); border-right: 0; border-bottom: 1px solid var(--nt-line); scrollbar-width: none; }
+  .nt-side::-webkit-scrollbar { display: none; }
+  .nt-side .nt-brand { padding: 0 12px 0 0; }
+  .nt-side-label, .nt-side-foot, .nt-side a .nt-count { display: none; }
+  .nt-main { padding: var(--nt-5) var(--nt-4) var(--nt-7); }
+}
+@media (max-width: 560px) {
+  .nt-kpi { padding: var(--nt-4); }
+  .nt-kpi-value { flex-wrap: wrap; gap: 2px 8px; font-size: 22px; margin-bottom: 10px; }
+  .nt-main-head h1 { font-size: 24px; line-height: 32px; }
+}
+
+/* ---------- 12 · Layout: landing page ---------- */
+.nt-nav { display: flex; align-items: center; gap: var(--nt-5); font-size: var(--nt-text-sm); }
+.nt-nav a:not(.nt-btn) { color: var(--nt-ink-2); text-decoration: none; }
+.nt-nav a:not(.nt-btn):hover { color: var(--nt-ink); }
+.nt-hero { padding-block: var(--nt-9) var(--nt-8); }
+.nt-hero h1 { font: 800 var(--nt-display)/var(--nt-lh-display) var(--nt-sans); max-width: 13ch; }
+.nt-hero .nt-lede { margin-top: var(--nt-5); font-size: 19px; line-height: 31px; max-width: 36ch; text-wrap: balance; }
+.nt-actions { display: flex; align-items: center; gap: var(--nt-3); flex-wrap: wrap; margin-top: var(--nt-6); }
+.nt-install { display: inline-flex; align-items: center; gap: 12px; height: 48px; padding: 0 6px 0 16px; border: 1px solid var(--nt-line-strong); border-radius: var(--nt-radius-sm); background: var(--nt-surface); font: 500 14px/1 var(--nt-mono); white-space: nowrap; max-width: 100%; overflow: hidden; }
+.nt-install > span::before { content: "$ "; color: var(--nt-ink-3); }
+.nt-section-head { max-width: 620px; margin-bottom: var(--nt-7); }
+.nt-section-head h2 { font-size: 34px; line-height: 42px; }
+.nt-section-head p { margin: var(--nt-3) 0 0; color: var(--nt-ink-2); font-size: var(--nt-text-lg); line-height: var(--nt-lh-lg); }
+.nt-features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-7) var(--nt-8); }
+.nt-feature { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: var(--nt-2) var(--nt-4); }
+.nt-feature > svg { width: 44px; height: 44px; grid-row: span 2; }
+.nt-feature h3 { font-size: 17px; line-height: 24px; }
+.nt-feature p { margin: 0; color: var(--nt-ink-2); }
+.nt-pricing { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-5); max-width: 880px; }
+.nt-price { display: flex; flex-direction: column; gap: var(--nt-4); padding: var(--nt-6); }
+.nt-price-amount { font: 800 44px/1 var(--nt-sans); font-variant-numeric: tabular-nums; }
+.nt-price-amount small { font: 500 var(--nt-text-sm)/1 var(--nt-sans); color: var(--nt-ink-3); margin-left: 6px; }
+.nt-checks { list-style: none; padding: 0; margin: 0; font-size: var(--nt-text-sm); line-height: var(--nt-lh-sm); }
+.nt-checks li { position: relative; padding-left: 26px; margin: 0 0 10px; }
+.nt-checks li::before { content: ""; position: absolute; left: 3px; top: 5px; width: 9px; height: 5px; border-left: var(--nt-stroke) solid var(--nt-ink); border-bottom: var(--nt-stroke) solid var(--nt-ink); transform: rotate(-45deg); }
+.nt-price .nt-btn { margin-top: auto; }
+.nt-cta { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--nt-6); align-items: center; padding: var(--nt-8) var(--nt-7); border: 1px solid var(--nt-line); border-radius: var(--nt-radius-lg); }
+.nt-cta h2 { font-size: 34px; line-height: 42px; max-width: 18ch; }
+@media (max-width: 900px) {
+  .nt-nav a:not(.nt-btn) { display: none; }
+  .nt-features, .nt-pricing { grid-template-columns: minmax(0, 1fr); }
+  .nt-cta { grid-template-columns: minmax(0, 1fr); padding: var(--nt-6) var(--nt-5); }
+  .nt-hero { padding-block: var(--nt-7); }
+}
+@media (max-width: 640px) {
+  .nt-section-head h2, .nt-cta h2 { font-size: 26px; line-height: 34px; }
+  .nt-hero .nt-lede { font-size: 17px; line-height: 28px; }
+  .nt-install { font-size: 12.5px; }
+}
+
+/* ---------- 13 · Layout: docs (nav, article, on this page) ---------- */
+.nt-search { display: flex; align-items: center; gap: 8px; height: 34px; min-width: 240px; padding: 0 6px 0 10px; border: 1px solid var(--nt-line); border-radius: var(--nt-radius-sm); background: var(--nt-surface); color: var(--nt-ink-3); font-size: var(--nt-text-sm); }
+.nt-search kbd { margin-left: auto; }
+.nt-docs { display: grid; grid-template-columns: 228px minmax(0, 720px) 188px; gap: var(--nt-7); max-width: 1320px; margin: 0 auto; padding: 0 var(--nt-6); }
+.nt-docs-nav { position: sticky; top: 57px; align-self: start; height: calc(100vh - 57px); overflow-y: auto; padding: var(--nt-6) var(--nt-4) var(--nt-6) 0; border-right: 1px solid var(--nt-line); }
+.nt-docs-nav b { display: block; font: 600 var(--nt-text-xs)/1 var(--nt-sans); color: var(--nt-ink-3); padding: 20px 10px 8px; }
+.nt-docs-nav b:first-child { padding-top: 0; }
+.nt-docs-nav a { display: block; padding: 6px 10px; border-radius: var(--nt-radius-sm); color: var(--nt-ink-2); font-size: var(--nt-text-sm); line-height: 20px; text-decoration: none; }
+.nt-docs-nav a:hover { color: var(--nt-ink); background: var(--nt-sunken); }
+.nt-docs-nav a[aria-current="page"] { background: var(--nt-accent-soft); color: var(--nt-accent-ink); font-weight: 600; }
+.nt-docs-main { min-width: 0; padding: var(--nt-7) 0 var(--nt-8); }
+.nt-crumbs { display: flex; gap: 8px; font-size: var(--nt-text-sm); color: var(--nt-ink-3); margin-bottom: var(--nt-3); }
+.nt-crumbs span + span::before { content: "/"; margin-right: 8px; color: var(--nt-line-strong); }
+.nt-docs-main h1 { font-size: 34px; line-height: 42px; }
+.nt-docs-main > .nt-lede { margin-top: var(--nt-3); max-width: none; }
+.nt-docs-main h2 { font-size: 22px; line-height: 30px; margin: var(--nt-8) 0 var(--nt-3); scroll-margin-top: 80px; }
+.nt-docs-main h3 { margin: var(--nt-6) 0 var(--nt-2); scroll-margin-top: 80px; }
+.nt-docs .nt-toc { padding-top: var(--nt-7); }
+.nt-pager { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-4); margin-top: var(--nt-8); }
+.nt-pager a { display: block; padding: var(--nt-4) var(--nt-5); border: 1px solid var(--nt-line); border-radius: var(--nt-radius); background: var(--nt-surface); color: var(--nt-ink); font-weight: 600; text-decoration: none; }
+.nt-pager a small { display: block; margin-bottom: 4px; font-weight: 500; color: var(--nt-ink-3); }
+.nt-pager a:last-child { text-align: right; }
+.nt-pager a:hover { border-color: var(--nt-line-strong); }
+@media (max-width: 1180px) {
+  .nt-docs { grid-template-columns: 228px minmax(0, 1fr); }
+  .nt-docs .nt-toc { display: none; }
+}
+@media (max-width: 860px) {
+  .nt-docs { grid-template-columns: minmax(0, 1fr); padding: 0 var(--nt-4); }
+  .nt-docs-nav { display: none; }
+  .nt-search { min-width: 0; }
+  .nt-search span, .nt-search kbd { display: none; }
+  .nt-search { padding: 0 9px; }
+  .nt-docs-main { padding-top: var(--nt-6); }
+  .nt-docs-main h1 { font-size: 28px; line-height: 36px; }
+}
+
+/* ---------- 14 · Print ---------- */
+@media print {
+  body { background: #fff; }
+  .nt-noprint { display: none !important; }
+  a { text-decoration: none; color: inherit; }
+}
+/* neatly.css:end */
+</style>
+<script>
+/* neatly.js:start */
+/* ==========================================================================
+   Neatly · neatly.js  (optional, ~4 KB, no dependencies)
+   Lives in a <script> in <head>; it waits for the page to load. It handles:
+     - charts:    <svg class="nt-chart" data-chart="line|bars" data-series='[[..],[..]]' data-labels='[..]'>
+                  <svg class="nt-spark" data-spark='[..]'>
+     - copy:      <button class="nt-copy" data-copy="#id-of-pre">Copy</button>
+     - contents:  <nav data-toc> with links to #section ids; the current one gets aria-current
+     - switches:  <div class="nt-seg"><button aria-pressed="true">..</button>..</div>
+     - slides:    body.nt-deck with section.nt-slide children
+     - try a colour:  open the page with ?accent=ff5a1f
+   https://github.com/kehaoran-ai/neatly · MIT
+   ========================================================================== */
+(function () {
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs, parent) {
+    var n = document.createElementNS(NS, name);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(n);
+    return n;
+  }
+  function parse(v, fallback) { try { return JSON.parse(v); } catch (e) { return fallback; } }
+  function fmt(v) { return v >= 1000 ? (v / 1000).toFixed(v >= 10000 ? 0 : 1).replace(/\.0$/, "") + "k" : String(v); }
+
+  /* ---- try a colour: ?accent=ff5a1f ---- */
+  var a = new URLSearchParams(location.search).get("accent");
+  if (a && /^[0-9a-f]{3,8}$/i.test(a)) document.documentElement.style.setProperty("--nt-accent", "#" + a);
+
+  function init() {
+    /* ---- line / area / bars ----
+       Drawn at the element's real pixel width so labels stay 11px; redrawn on resize. */
+    function niceStep(raw) {
+      var p = Math.pow(10, Math.floor(Math.log10(raw))), m = raw / p;
+      return (m <= 1.2 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * p;
+    }
+    function draw(svg) {
+      var kind = svg.dataset.chart || "line";
+      var series = parse(svg.dataset.series, []);
+      if (!series.length) return;
+      if (typeof series[0] === "number") series = [series];
+      var labels = parse(svg.dataset.labels, []);
+      var unit = svg.dataset.unit || "";
+      while (svg.firstChild) svg.removeChild(svg.firstChild);
+      var W = Math.max(280, Math.round(svg.clientWidth || svg.getBoundingClientRect().width || 640));
+      var H = +(svg.dataset.height || 240), L = 40, R = 12, T = 12, B = labels.length ? 28 : 8;
+      // On a slide, never run past the bottom of the slide body.
+      var body = svg.closest(".nt-slide-body");
+      if (body && body.offsetParent) {
+        var sc = body.getBoundingClientRect().height / body.offsetHeight || 1;
+        var room = (body.getBoundingClientRect().bottom - svg.getBoundingClientRect().top) / sc - 8;
+        if (room > 120) H = Math.min(H, Math.floor(room));
+      }
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      svg.setAttribute("height", H);
+      svg.setAttribute("role", "img");
+      var all = [].concat.apply([], series), mx = Math.max.apply(null, all);
+      var stepV = niceStep(mx / 4 || 1), top = stepV * Math.ceil(mx * 1.04 / stepV);
+      var n = series[0].length, iw = W - L - R, ih = H - T - B;
+      var x = function (i) { return kind === "bars" ? L + iw * (i + 0.5) / n : L + (n === 1 ? iw / 2 : iw * i / (n - 1)); };
+      var y = function (v) { return T + ih - ih * v / top; };
+      for (var gv = 0; gv <= top + 1e-9; gv += stepV) {
+        var gy = y(gv);
+        el("line", { x1: L, x2: W - R, y1: gy, y2: gy, class: "axis" }, svg);
+        el("text", { x: L - 10, y: gy + 4, "text-anchor": "end", class: "tick" }, svg).textContent = fmt(+gv.toFixed(2)) + unit;
+      }
+      // Empty strings in data-labels mean "no label here": the author already chose which to show.
+      var maxLabels = Math.max(2, Math.floor(iw / 70)), named = labels.filter(Boolean).length;
+      var step = named < labels.length && named <= maxLabels ? 1 : Math.ceil(labels.length / maxLabels);
+      labels.forEach(function (lb, i) {
+        if (!lb || (i % step && i !== labels.length - 1)) return;
+        var anchor = kind === "bars" ? "middle" : i === 0 ? "start" : i === labels.length - 1 ? "end" : "middle";
+        el("text", { x: x(i), y: H - 8, "text-anchor": anchor, class: "tick" }, svg).textContent = lb;
+      });
+      var hi = +(svg.dataset.accent || 0);
+      if (kind === "bars") {
+        var bw = Math.min(32, iw / n * 0.58), hl = parse(svg.dataset.highlight, [n - 1]);
+        series[0].forEach(function (v, i) {
+          el("rect", { x: x(i) - bw / 2, y: y(v), width: bw, height: Math.max(1, y(0) - y(v)), rx: 3, class: "bar" + (hl.indexOf(i) > -1 ? " is-accent" : "") }, svg);
+        });
+        return;
+      }
+      var s = series[hi];
+      var d = s.map(function (v, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1); }).join(" ");
+      if (svg.dataset.area !== "false") el("path", { d: d + " L" + x(n - 1) + " " + y(0) + " L" + x(0) + " " + y(0) + " Z", class: "area" }, svg);
+      series.forEach(function (o, si) {
+        if (si === hi) return;
+        el("path", { d: o.map(function (v, i) { return (i ? "L" : "M") + x(i).toFixed(1) + " " + y(v).toFixed(1); }).join(" "), class: "series is-faint" }, svg);
+      });
+      el("path", { d: d, class: "series is-accent" }, svg);
+      el("circle", { cx: x(n - 1), cy: y(s[n - 1]), r: 4, class: "dot" }, svg);
+    }
+    var charts = [].slice.call(document.querySelectorAll("svg.nt-chart"));
+    charts.forEach(draw);
+    var rt;
+    window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { charts.forEach(draw); }, 120); });
+
+    /* ---- sparkline ---- */
+    document.querySelectorAll("svg.nt-spark").forEach(function (svg) {
+      var s = parse(svg.dataset.spark, []);
+      if (s.length < 2) return;
+      var W = 120, H = 28, mn = Math.min.apply(null, s), mx = Math.max.apply(null, s), r = mx - mn || 1;
+      svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+      svg.setAttribute("preserveAspectRatio", "none");
+      var d = s.map(function (v, i) { return (i ? "L" : "M") + (W * i / (s.length - 1)).toFixed(1) + " " + (H - 2 - (H - 4) * (v - mn) / r).toFixed(1); }).join(" ");
+      if (svg.classList.contains("is-accent")) el("path", { d: d + " L" + W + " " + H + " L0 " + H + " Z", class: "area" }, svg);
+      el("path", { d: d, class: "series" + (svg.classList.contains("is-accent") ? " is-accent" : "") }, svg);
+    });
+
+    /* ---- deck: arrows / space / click to move, #3 deep links, scales to fit ---- */
+    var deck = document.querySelector(".nt-deck");
+    if (deck) {
+      var slides = [].slice.call(deck.querySelectorAll(".nt-slide")), cur = 0;
+      var bar = document.createElement("div"); bar.className = "nt-progress nt-noprint"; document.body.appendChild(bar);
+      function fit() { var de = document.documentElement, sc = Math.min(de.clientWidth / 1360, de.clientHeight / 780); document.documentElement.style.setProperty("--nt-scale", Math.min(sc, 1.6).toFixed(3)); }
+      function go(i) {
+        cur = Math.max(0, Math.min(slides.length - 1, i));
+        slides.forEach(function (s, k) { s.classList.toggle("is-active", k === cur); });
+        bar.style.width = (100 * (cur + 1) / slides.length) + "%";
+        slides[cur].querySelectorAll("svg.nt-chart").forEach(draw);
+        history.replaceState(null, "", "#" + (cur + 1));
+      }
+      slides.forEach(function (s, k) {
+        var n = s.querySelector(".nt-slide-foot .nt-num");
+        if (n) n.textContent = String(k + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+      });
+      addEventListener("keydown", function (e) {
+        if (["ArrowRight", "PageDown", " ", "Enter"].indexOf(e.key) > -1) { e.preventDefault(); go(cur + 1); }
+        else if (["ArrowLeft", "PageUp", "Backspace"].indexOf(e.key) > -1) { e.preventDefault(); go(cur - 1); }
+        else if (e.key === "Home") go(0);
+        else if (e.key === "End") go(slides.length - 1);
+      });
+      deck.addEventListener("click", function (e) { if (e.target.closest("a, button")) return; go(cur + (e.clientX > innerWidth / 3 ? 1 : -1)); });
+      addEventListener("resize", fit);
+      fit(); go((parseInt(location.hash.slice(1), 10) || 1) - 1);
+    }
+
+    /* ---- copy buttons ---- */
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest(".nt-copy");
+      if (!b) return;
+      var src = document.querySelector(b.dataset.copy);
+      if (!src) return;
+      navigator.clipboard && navigator.clipboard.writeText(src.innerText.replace(/^\$ /gm, "")).then(function () {
+        var t = b.textContent; b.textContent = "Copied"; setTimeout(function () { b.textContent = t; }, 1400);
+      });
+    });
+
+    /* ---- segmented control: one pressed button per group ---- */
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest && e.target.closest(".nt-seg button");
+      if (!b) return;
+      b.parentNode.querySelectorAll("button").forEach(function (o) { o.setAttribute("aria-pressed", o === b ? "true" : "false"); });
+    });
+
+    /* ---- contents: highlight the last section whose heading has passed the top third ---- */
+    var toc = document.querySelector("[data-toc]");
+    if (toc) {
+      var items = [].slice.call(toc.querySelectorAll('a[href^="#"]')).map(function (l) {
+        return { link: l, target: document.getElementById(l.getAttribute("href").slice(1)) };
+      }).filter(function (it) { return it.target; });
+      var ticking = false;
+      function mark() {
+        ticking = false;
+        var line = innerHeight * 0.3, cur = items[0];
+        items.forEach(function (it) { if (it.target.getBoundingClientRect().top <= line) cur = it; });
+        if (innerHeight + scrollY >= document.documentElement.scrollHeight - 4) cur = items[items.length - 1];
+        items.forEach(function (it) { if (it === cur) it.link.setAttribute("aria-current", "true"); else it.link.removeAttribute("aria-current"); });
+      }
+      if (items.length) {
+        addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(mark); } }, { passive: true });
+        mark();
+      }
+    }
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+})();
+/* neatly.js:end */
+</script>
+</head>
+<body>
+
+<header class="nt-topbar">
+  <div class="nt-wrap nt-row">
+    <a class="nt-brand" href="#">Fieldnote</a>
+    <span class="nt-faint nt-small">Product review</span>
+    <span class="nt-grow"></span>
+    <span class="nt-label">Q3 · 2026</span>
+  </div>
+</header>
+
+<main class="nt-wrap">
+  <header class="nt-report-head">
+    <div class="nt-kicker"><b>Q3</b>Product review</div>
+    <h1>Activation doubled in Q3 after we shortened onboarding</h1>
+    <p class="nt-lede">New accounts now start with three starter notes and one question, instead of an empty workspace and a settings panel. Week-one activation went from 22% to 41%.</p>
+    <div class="nt-byline">
+      <span class="nt-avatar">MC</span><span class="nt-avatar">JR</span>
+      <span><b>Mia Chen</b> and <b>Jonas Reyes</b><br><span class="nt-faint">Product · 12 October 2026 · 6 min read</span></span>
+    </div>
+  </header>
+
+  <section class="nt-metrics" aria-label="Headline numbers">
+    <div class="nt-metric"><b>41%</b><span>Activated in week one <span class="nt-delta is-good">+19 pts</span></span></div>
+    <div class="nt-metric"><b>3:40</b><span>Time to first note <span class="nt-delta is-good">−62%</span></span></div>
+    <div class="nt-metric"><b>58%</b><span>Still writing in week two <span class="nt-delta is-good">+11 pts</span></span></div>
+    <div class="nt-metric"><b>−34%</b><span>Onboarding tickets <span class="nt-delta nt-faint">vs Q2</span></span></div>
+  </section>
+
+  <div class="nt-report">
+    <nav class="nt-toc" data-toc aria-label="Contents">
+      <span class="nt-toc-label">Contents</span>
+      <a href="#summary" aria-current="true">Summary</a>
+      <a href="#change">What changed</a>
+      <a href="#evidence">The evidence</a>
+      <a href="#next">What we do next</a>
+      <a href="#appendix">Appendix</a>
+    </nav>
+
+    <article class="nt-prose">
+      <section id="summary">
+        <h2>Summary</h2>
+        <p>Until July, a new account opened on an empty workspace with a blinking cursor and a sidebar full of settings. <span class="nt-mark">Fifty-nine percent of people left before writing anything.</span> In August we replaced that screen with three starter notes and a single question: “What are you working on?”</p>
+        <p>The answer seeds the first note. People start by editing a note that already exists, and their first links appear on day one. Before the change, the median account made its first link in week three.</p>
+        <div class="nt-note"><b>Decision</b><p>Keep the new flow for all sign-ups. Remove the old one in the 4.12 release.</p></div>
+      </section>
+
+      <section id="change">
+        <h2>What changed</h2>
+        <p>The old flow asked for four decisions before the first keystroke. The new one asks for one, and it is a question people can answer without thinking about our product at all.</p>
+      </section>
+    </article>
+  </div>
+
+  <figure class="nt-figure nt-wide">
+    <div class="nt-frame nt-grid">
+      <svg class="nt-line" viewBox="0 0 960 360" role="img" aria-label="Onboarding before and after">
+        <text x="40" y="44" class="is-mono">Before</text>
+        <rect x="40" y="64" width="150" height="64" rx="6" class="is-paper"/>
+        <text x="58" y="92">Sign up</text><text x="58" y="112" class="is-mono">email + password</text>
+        <path d="M190 96 H250"/><path d="M242 90 L250 96 L242 102"/>
+        <rect x="250" y="64" width="190" height="64" rx="6" class="is-paper"/>
+        <text x="268" y="92">Name a workspace</text><text x="268" y="112" class="is-mono">+ pick a theme</text>
+        <path d="M440 96 H500"/><path d="M492 90 L500 96 L492 102"/>
+        <rect x="500" y="64" width="190" height="64" rx="6" class="is-paper"/>
+        <text x="518" y="92">Empty note</text><text x="518" y="112" class="is-mono">blinking cursor</text>
+        <path d="M690 96 H750" stroke-dasharray="4 4"/>
+        <text x="760" y="92">59% leave</text><text x="760" y="112" class="is-mono">before writing</text>
+        <path d="M40 186 H920" class="is-faint"/>
+        <text x="40" y="232" class="is-mono">After</text>
+        <rect x="40" y="252" width="150" height="64" rx="6" class="is-paper"/>
+        <text x="58" y="280">Sign up</text><text x="58" y="300" class="is-mono">one click</text>
+        <path d="M190 284 H250"/><path d="M242 278 L250 284 L242 290"/>
+        <g class="is-accent">
+          <rect x="250" y="252" width="230" height="64" rx="6" class="is-soft"/>
+          <text x="268" y="280">"What are you working on?"</text><text x="268" y="300" class="is-mono" style="fill:currentColor">one question</text>
+          <path d="M480 284 H540"/><path d="M532 278 L540 284 L532 290"/>
+        </g>
+        <rect x="540" y="252" width="190" height="64" rx="6" class="is-paper"/>
+        <text x="558" y="280">Three starter notes</text><text x="558" y="300" class="is-mono">already linked</text>
+        <path d="M730 284 H790"/><path d="M782 278 L790 284 L782 290"/>
+        <text x="800" y="280">41% activate</text><text x="800" y="300" class="is-mono">in week one</text>
+      </svg>
+    </div>
+    <figcaption><b>Fig. 1</b>The old flow asked for four decisions before the first keystroke. The new one asks one question, and its answer becomes the first note.</figcaption>
+  </figure>
+
+  <div class="nt-report">
+    <div aria-hidden="true"></div>
+    <article class="nt-prose">
+      <section id="evidence">
+        <h2>The evidence</h2>
+        <p>Weekly activation sat between 19 and 23 percent for all of Q2. It moved the week the new flow reached half of sign-ups, and again when it reached everyone. Nothing else we shipped lines up with either jump.</p>
+      </section>
+    </article>
+  </div>
+
+  <figure class="nt-figure nt-wide">
+    <div class="nt-frame nt-chart-frame">
+      <div class="nt-row nt-chart-head">
+        <b>Weekly activation</b><span class="nt-grow"></span>
+        <span class="nt-legend"><span><i class="is-accent"></i>2026</span><span><i class="is-faint"></i>2025</span></span>
+      </div>
+      <svg class="nt-chart" data-chart="line" data-height="260"
+        data-series='[[18,19,17,20,19,21,20,22,21,20,23,22,24],[20,21,20,22,21,23,22,30,34,36,39,40,41]]'
+        data-labels='["Jul 6","","Jul 20","","Aug 3","","Aug 17","","Aug 31","","Sep 14","","Sep 28"]'
+        data-accent="1"></svg>
+    </div>
+    <figcaption><b>Fig. 2</b>Share of new accounts that write and link a note in their first week. The new flow reached half of sign-ups on 10 August and everyone on 24 August.</figcaption>
+  </figure>
+
+  <div class="nt-report">
+    <div aria-hidden="true"></div>
+    <article class="nt-prose">
+      <p>Retention followed. People who answered the question were still writing in week two at nearly twice the rate of those who skipped it, and the gap held for the six weeks we have measured so far.</p>
+      <figure class="nt-quote">
+        <blockquote>“I didn't set anything up. I just started fixing the note it made for me, and an hour later I had a project.”</blockquote>
+        <figcaption>Interview 14 · freelance researcher · signed up 19 August</figcaption>
+      </figure>
+
+      <section id="next">
+        <h2>What we do next</h2>
+        <ol class="nt-steps">
+          <li class="is-current"><h4>Write starter notes for the ten most common answers</h4><p class="nt-muted">Today the starter notes are generic. Tailoring them to the answer is the cheapest next step and the one we expect to move activation most.</p></li>
+          <li><h4>Move theme and workspace settings after the first note</h4><p class="nt-muted">Fewer than 1% of new accounts opened these settings in week one. We will offer them on day three.</p></li>
+          <li><h4>Measure week-four retention before calling this done</h4><p class="nt-muted">Week-four retention is the number that predicts paid conversion. We review it on 9 November.</p></li>
+        </ol>
+      </section>
+
+      <section id="appendix">
+        <h2>Appendix</h2>
+        <p class="nt-muted">Cohorts by sign-up week. Activation means a note written and linked within seven days.</p>
+        <div class="nt-table-wrap">
+          <table class="nt-table">
+            <thead><tr><th>Cohort</th><th class="is-num">Sign-ups</th><th class="is-num">Activated</th><th class="is-num">Week two</th><th>Flow</th></tr></thead>
+            <tbody>
+              <tr><td>3 Aug</td><td class="is-num">2,140</td><td class="is-num">22%</td><td class="is-num">46%</td><td><span class="nt-tag">Old</span></td></tr>
+              <tr><td>10 Aug</td><td class="is-num">2,315</td><td class="is-num">30%</td><td class="is-num">51%</td><td><span class="nt-tag">Half</span></td></tr>
+              <tr><td>24 Aug</td><td class="is-num">2,608</td><td class="is-num">36%</td><td class="is-num">55%</td><td><span class="nt-tag nt-tag--accent">New</span></td></tr>
+              <tr><td>14 Sep</td><td class="is-num">2,951</td><td class="is-num">39%</td><td class="is-num">57%</td><td><span class="nt-tag nt-tag--accent">New</span></td></tr>
+              <tr><td>28 Sep</td><td class="is-num">3,204</td><td class="is-num">41%</td><td class="is-num">58%</td><td><span class="nt-tag nt-tag--accent">New</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </article>
+  </div>
+</main>
+
+<footer class="nt-footer">
+  <div class="nt-wrap nt-row"><span>Fieldnote · Internal</span><span class="nt-grow"></span><span>Made with <a href="https://github.com/kehaoran-ai/neatly">Neatly</a></span></div>
+</footer>
+
+</body>
+</html>

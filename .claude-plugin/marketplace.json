@@ -1,0 +1,16 @@
+{
+  "name": "neatly",
+  "owner": { "name": "Ke Haoran", "url": "https://github.com/kehaoran-ai" },
+  "metadata": {
+    "description": "Neatly: HTML pages that look designed by a person, not generated."
+  },
+  "plugins": [
+    {
+      "name": "neatly",
+      "source": "./",
+      "description": "Reports, slide decks, dashboards, landing pages and docs in one visual system, with a checker for the usual AI look.",
+      "version": "0.1.0",
+      "license": "MIT"
+    }
+  ]
+}

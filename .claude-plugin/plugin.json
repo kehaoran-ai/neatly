@@ -1,0 +1,10 @@
+{
+  "name": "neatly",
+  "version": "0.1.0",
+  "description": "HTML pages that look designed by a person, not generated: reports, slide decks, dashboards, landing pages and docs in one visual system.",
+  "author": { "name": "Ke Haoran", "url": "https://github.com/kehaoran-ai" },
+  "homepage": "https://github.com/kehaoran-ai/neatly",
+  "repository": "https://github.com/kehaoran-ai/neatly",
+  "license": "MIT",
+  "keywords": ["html", "design", "report", "slides", "dashboard", "landing-page", "docs", "skill"]
+}
