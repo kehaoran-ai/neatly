@@ -124,7 +124,8 @@ def check(path):
 
     # Layout
     for kids in p.children.values():
-        cards = [k for k in kids if "nt-card" in k[1]]
+        # Neatly's own cards and the usual names other pages use for them.
+        cards = [k for k in kids if re.search(r"(^|[\s_-])(card|tile)([\s_-]|$)", k[1])]
         if len(cards) == 3 and len(kids) == 3:
             errors.append("A row of exactly three cards. Use two, four, or a list without cards.")
             break
