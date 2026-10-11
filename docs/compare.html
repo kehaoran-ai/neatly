@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Compare</title>
+<!-- Source of docs/compare.png, the README's first image. Render at 1600x640, scale 2. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400..800&display=swap">
+<link rel="stylesheet" href="../skills/neatly/neatly.css">
+<style>
+body { box-sizing: border-box; margin: 0; width: 1600px; height: 640px; padding: 56px 56px 0; background: var(--nt-paper); }
+.pair { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.label { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; font: 700 20px/1 var(--nt-sans); }
+.label small { font: 500 15px/1 var(--nt-sans); color: var(--nt-ink-3); }
+.shot { border: 1px solid var(--nt-line-strong); border-radius: 10px; overflow: hidden; box-shadow: var(--nt-shadow-lift); }
+.shot img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.foot { display: flex; align-items: center; gap: 10px; margin-top: 36px; font: 500 16px/1 var(--nt-sans); color: var(--nt-ink-2); }
+.foot .nt-brand { font-size: 18px; }
+</style>
+</head>
+<body>
+<div class="pair">
+  <div><div class="label">Without Neatly <small>the usual AI page</small></div><div class="shot"><img src="screenshots/before.png" alt=""></div></div>
+  <div><div class="label">With Neatly <small>same request, same data</small></div><div class="shot"><img src="screenshots/report.png" alt=""></div></div>
+</div>
+<div class="foot"><span class="nt-brand">Neatly</span><span class="nt-grow"></span><span>neatly.kehaoran.ai</span></div>
+</body>
+</html>
