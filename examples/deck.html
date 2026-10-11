@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Neatly page: your content goes in the body element, which opens on line 747. Everything above it is the design system: leave it as it is, except the title. -->
+<!-- Neatly page: your content goes in the body element, which opens on line 755. Everything above it is the design system: leave it as it is, except the title. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -85,6 +85,13 @@
   --nt-fast: 140ms;
 }
 
+/* Chinese and Japanese pages: the CJK face sets the Latin letters too, so a word
+   like "AI" inside a Chinese heading matches the characters around it in weight
+   and width instead of shouting in Montserrat. */
+:root:lang(zh), :lang(zh) { --nt-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", ui-sans-serif, sans-serif; }
+:root:lang(ja), :lang(ja) { --nt-sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", ui-sans-serif, sans-serif; }
+:lang(zh) :is(h1, h2, h3), :lang(ja) :is(h1, h2, h3) { line-height: 1.25; }
+
 /* ---------- 2 · Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { color-scheme: light; -webkit-text-size-adjust: 100%; }
@@ -132,6 +139,7 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 .nt-kicker b { font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-2); }
 /* Highlighter for the one phrase that matters */
 .nt-mark { background: linear-gradient(transparent 58%, var(--nt-accent-soft) 58%); color: inherit; padding: 0 2px; }
+:is(h1, h2) .nt-mark { background-image: linear-gradient(transparent 66%, var(--nt-accent-line) 66%, var(--nt-accent-line) 90%, transparent 90%); padding: 0; }
 .nt-prose { max-width: var(--nt-measure); }
 .nt-prose h2 { margin: var(--nt-8) 0 var(--nt-4); }
 .nt-prose h3 { margin: var(--nt-6) 0 var(--nt-2); }
