@@ -101,6 +101,7 @@ skills/neatly/
   neatly.js             图表、幻灯片、复制按钮、目录高亮（可选）
   layouts/              五个起步文件
   reference/            组件手册
+  scripts/make.py       用版式加正文生成页面
   scripts/check.py      检查脚本
 examples/               五个做好的页面
 scripts/build.py        改完 CSS 或 JS 后，重新内联进所有页面

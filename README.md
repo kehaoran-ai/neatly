@@ -101,6 +101,7 @@ skills/neatly/
   neatly.js             charts, slides, copy buttons, contents (optional)
   layouts/              five starting files
   reference/            component reference
+  scripts/make.py       builds a page from a layout and a body
   scripts/check.py      the checker
 examples/               five finished pages
 scripts/build.py        re-inlines the CSS and JS after you edit them
