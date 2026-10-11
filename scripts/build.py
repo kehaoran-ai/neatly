@@ -33,7 +33,7 @@ def signpost(text):
             "Everything above it is the design system: leave it as it is, except the title. -->\n")
     return head + "\n" + note + rest
 
-pages = sorted(list((SKILL / "layouts").glob("*.html")) + list((ROOT / "examples").glob("*.html")))
+pages = sorted(list((SKILL / "layouts").glob("*.html")) + list((ROOT / "examples").glob("*.html")) + list((ROOT / "site").glob("*.html")))
 for p in pages:
     t = p.read_text(encoding="utf-8")
     n = inject(inject(t, "neatly.css", CSS), "neatly.js", JS)

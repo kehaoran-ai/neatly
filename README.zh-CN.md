@@ -4,7 +4,7 @@
 
 Neatly 是一个给 Claude Code 等 AI 编程工具用的 skill。让它做报告、路演幻灯片、数据看板、产品落地页或文档页，得到的是一个单文件 HTML：中性灰、只用一种无衬线字体、方格纸上的线稿图、只有一个主题色，主题色改一行就能换。
 
-[English](README.md) · 简体中文
+**在线演示：[neatly.kehaoran.ai](https://neatly.kehaoran.ai)** · [English](README.md) · 简体中文
 
 ![用 Neatly 做的报告](docs/screenshots/report.png)
 
@@ -16,18 +16,18 @@ Neatly 是一个给 Claude Code 等 AI 编程工具用的 skill。让它做报�
 
 | 版式 | 用在 | 例子 |
 |---|---|---|
-| 报告 | 复盘、分析、备忘、调研总结 | [report.html](examples/report.html) |
-| 幻灯片 | 路演和汇报，16:9，可直接打印成 PDF | [deck.html](examples/deck.html) |
-| 数据看板 | 指标总览、状态页 | [dashboard.html](examples/dashboard.html) |
-| 落地页 | 产品页、发布页 | [landing.html](examples/landing.html) |
-| 文档 | 教程、安装说明、API 页 | [docs.html](examples/docs.html) |
+| 报告 | 复盘、分析、备忘、调研总结 | [report.html](https://neatly.kehaoran.ai/examples/report.html) |
+| 幻灯片 | 路演和汇报，16:9，可直接打印成 PDF | [deck.html](https://neatly.kehaoran.ai/examples/deck.html) |
+| 数据看板 | 指标总览、状态页 | [dashboard.html](https://neatly.kehaoran.ai/examples/dashboard.html) |
+| 落地页 | 产品页、发布页 | [landing.html](https://neatly.kehaoran.ai/examples/landing.html) |
+| 文档 | 教程、安装说明、API 页 | [docs.html](https://neatly.kehaoran.ai/examples/docs.html) |
 
 | | |
 |---|---|
 | ![幻灯片](docs/screenshots/deck.png) | ![数据看板](docs/screenshots/dashboard.png) |
 | ![落地页](docs/screenshots/landing.png) | ![文档](docs/screenshots/docs.png) |
 
-每个例子都是一个单文件，下载后双击就能打开，不需要构建。
+每个例子都是一个单文件，可以在演示站直接打开，也可以下载后双击打开，不需要构建。演示站上还能切换主题色，并查看每个例子背后的起步文件。
 
 ## 安装
 

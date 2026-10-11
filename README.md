@@ -4,7 +4,7 @@ HTML pages from your AI that look like a person designed them.
 
 Neatly is a skill for Claude Code and other agents. Ask for a report, a slide deck, a dashboard, a landing page or a docs page, and you get one self-contained HTML file in a calm, consistent style: neutral grey, one sans typeface, line-art diagrams on graph paper, and a single accent colour you can change in one line.
 
-English · [简体中文](README.zh-CN.md)
+**Live demo: [neatly.kehaoran.ai](https://neatly.kehaoran.ai)** · English · [简体中文](README.zh-CN.md)
 
 ![A report made with Neatly](docs/screenshots/report.png)
 
@@ -16,18 +16,18 @@ Ask any model for an HTML page and you can tell it was generated: purple-to-blue
 
 | Layout | For | Example |
 |---|---|---|
-| Report | Reviews, analyses, memos, research write-ups | [report.html](examples/report.html) |
-| Deck | Pitches and presentations, 16:9, prints to PDF | [deck.html](examples/deck.html) |
-| Dashboard | Metrics overviews and status pages | [dashboard.html](examples/dashboard.html) |
-| Landing page | Product pages and launches | [landing.html](examples/landing.html) |
-| Docs | Guides, setup and API pages | [docs.html](examples/docs.html) |
+| Report | Reviews, analyses, memos, research write-ups | [report.html](https://neatly.kehaoran.ai/examples/report.html) |
+| Deck | Pitches and presentations, 16:9, prints to PDF | [deck.html](https://neatly.kehaoran.ai/examples/deck.html) |
+| Dashboard | Metrics overviews and status pages | [dashboard.html](https://neatly.kehaoran.ai/examples/dashboard.html) |
+| Landing page | Product pages and launches | [landing.html](https://neatly.kehaoran.ai/examples/landing.html) |
+| Docs | Guides, setup and API pages | [docs.html](https://neatly.kehaoran.ai/examples/docs.html) |
 
 | | |
 |---|---|
 | ![Deck](docs/screenshots/deck.png) | ![Dashboard](docs/screenshots/dashboard.png) |
 | ![Landing page](docs/screenshots/landing.png) | ![Docs](docs/screenshots/docs.png) |
 
-Every example is a single file. Download one and open it; there is nothing to build.
+Every example is a single file. Open it on the demo site, or download it and double-click; there is nothing to build. On the demo site you can also switch the accent colour and open the starting file behind each example.
 
 ## Install
 

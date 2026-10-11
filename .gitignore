@@ -2,3 +2,5 @@
 __pycache__/
 *.pyc
 .trial/
+dist/
+.wrangler/
