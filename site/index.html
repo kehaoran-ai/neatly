@@ -751,9 +751,13 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
     <a class="nt-brand" href="#">Neatly</a>
     <span class="nt-grow"></span>
     <nav class="nt-nav" aria-label="Main">
-      <a href="#examples">Examples</a>
-      <a href="#how">How it works</a>
-      <a href="#install">Install</a>
+      <a href="#examples" data-zh="案例">Examples</a>
+      <a href="#how" data-zh="原理">How it works</a>
+      <a href="#install" data-zh="安装">Install</a>
+      <div class="nt-seg" role="group" aria-label="Language">
+        <button data-lang="en" aria-pressed="true">EN</button>
+        <button data-lang="zh" aria-pressed="false">中文</button>
+      </div>
       <a class="nt-btn nt-btn--primary nt-btn--sm" href="https://github.com/kehaoran-ai/neatly">GitHub</a>
     </nav>
   </div>
@@ -762,13 +766,13 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 <main>
   <section class="nt-wrap nt-hero nt-split">
     <div>
-      <h1>Make your AI's HTML pages look designed</h1>
-      <p class="nt-lede">Neatly is a skill for Claude Code and other agents. Ask for a report, a slide deck, a dashboard, a landing page or a docs page, and get one self-contained HTML file in a calm, consistent style.</p>
+      <h1 data-zh="让 AI 做的页面&lt;br&gt;像设计师做的">Make your AI's HTML pages look designed</h1>
+      <p class="nt-lede" data-zh="Neatly 是给 Claude Code 等 AI 编程工具用的 skill。让它做报告、幻灯片、数据看板、落地页或文档页，得到的是一个风格克制、前后一致的单文件 HTML。">Neatly is a skill for Claude Code and other agents. Ask for a report, a slide deck, a dashboard, a landing page or a docs page, and get one self-contained HTML file in a calm, consistent style.</p>
       <div class="nt-actions">
-        <div class="nt-install"><span id="cmd-hero">npx skills add kehaoran-ai/neatly</span><button class="nt-copy" data-copy="#cmd-hero">Copy</button></div>
+        <div class="nt-install"><span id="cmd-hero">npx skills add kehaoran-ai/neatly</span><button class="nt-copy" data-copy="#cmd-hero" data-zh="复制">Copy</button></div>
       </div>
       <div class="picker">
-        <span>Try a colour</span>
+        <span data-zh="换个主题色">Try a colour</span>
         <div class="swatches" role="group" aria-label="Accent colour">
           <button data-accent="2e4bff" aria-pressed="true" aria-label="Blue"></button>
           <button data-accent="e4572e" aria-pressed="false" aria-label="Vermilion"></button>
@@ -784,69 +788,69 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
         <svg class="nt-line" viewBox="0 0 520 420" role="img" aria-label="A one-line request becomes a finished report">
           <path d="M120 150 V262 Q120 274 132 274 H190"/><path d="M182 268 L190 274 L182 280"/>
           <rect x="40" y="56" width="268" height="88" rx="14" class="is-paper"/>
-          <text x="62" y="92">Make an HTML report on</text><text x="62" y="114">our Q3 numbers</text>
+          <text x="62" y="92" data-zh="帮我把三季度的数据">Make an HTML report on</text><text x="62" y="114" data-zh="做成一份 HTML 报告">our Q3 numbers</text>
           <rect x="196" y="176" width="284" height="208" rx="8" class="is-paper"/>
-          <text x="218" y="210">Activation doubled in Q3</text>
+          <text x="218" y="210" data-zh="三季度激活率翻倍">Activation doubled in Q3</text>
           <path d="M218 228 H430 M218 246 H384" class="is-faint"/>
           <rect x="218" y="330" width="20" height="26" rx="3"/><rect x="246" y="318" width="20" height="38" rx="3"/><rect x="274" y="306" width="20" height="50" rx="3"/><rect x="302" y="296" width="20" height="60" rx="3"/>
-          <text x="370" y="318" style="font-size:30px;font-weight:800">41%</text><text x="370" y="338" class="is-mono">week one</text>
+          <text x="370" y="318" style="font-size:30px;font-weight:800">41%</text><text x="370" y="338" class="is-mono" data-zh="首周">week one</text>
           <g class="is-accent"><rect x="330" y="280" width="20" height="76" rx="3" class="is-soft"/></g>
         </svg>
       </div>
-      <figcaption><b>Fig.</b> One request in, one finished page out. The agent writes the content; Neatly supplies the design.</figcaption>
+      <figcaption><b>Fig.</b><span data-zh="一句话进去，一个做好的页面出来。内容由 AI 写，设计由 Neatly 提供。">One request in, one finished page out. The agent writes the content; Neatly supplies the design.</span></figcaption>
     </figure>
   </section>
 
   <section class="nt-wrap nt-section" id="examples" style="padding-top:var(--nt-6)">
     <div class="nt-section-head">
-      <h2>Five layouts, one look</h2>
-      <p>Each example is a single HTML file made with Neatly. Open one, or open the starting file the agent fills in.</p>
+      <h2 data-zh="五个版式，一套风格">Five layouts, one look</h2>
+      <p data-zh="每个案例都是用 Neatly 做的单文件 HTML。可以打开成品，也可以打开 AI 起步用的版式文件。">Each example is a single HTML file made with Neatly. Open one, or open the starting file the agent fills in.</p>
     </div>
     <div class="gallery">
       <div class="shot">
         <a class="thumb" data-demo href="examples/report.html"><img src="img/report.png" alt="Report example: a Q3 product review" loading="lazy"></a>
-        <h3>Report</h3>
-        <p>Reviews, analyses, memos and research write-ups. A contents rail, a numbers strip, charts and line-art figures.</p>
-        <div class="nt-row"><a data-demo href="examples/report.html">Open the example</a><a data-demo href="layouts/report.html">Starting file</a></div>
+        <h3 data-zh="报告">Report</h3>
+        <p data-zh="复盘、分析、备忘、调研总结。带目录、数字条、图表和线稿图。">Reviews, analyses, memos and research write-ups. A contents rail, a numbers strip, charts and line-art figures.</p>
+        <div class="nt-row"><a data-demo href="examples/report.html" data-zh="打开案例">Open the example</a><a data-demo href="layouts/report.html" data-zh="起步文件">Starting file</a></div>
       </div>
       <div class="shot">
         <a class="thumb" data-demo href="examples/deck.html"><img src="img/deck.png" alt="Deck example: a seed round pitch" loading="lazy"></a>
-        <h3>Deck</h3>
-        <p>16:9 slides. Arrow keys to move, prints one slide per page.</p>
-        <div class="nt-row"><a data-demo href="examples/deck.html">Open the example</a><a data-demo href="layouts/deck.html">Starting file</a></div>
+        <h3 data-zh="幻灯片">Deck</h3>
+        <p data-zh="16:9 幻灯片。方向键翻页，打印时一页一张。">16:9 slides. Arrow keys to move, prints one slide per page.</p>
+        <div class="nt-row"><a data-demo href="examples/deck.html" data-zh="打开案例">Open the example</a><a data-demo href="layouts/deck.html" data-zh="起步文件">Starting file</a></div>
       </div>
       <div class="shot">
         <a class="thumb" data-demo href="examples/dashboard.html"><img src="img/dashboard.png" alt="Dashboard example: a growth overview" loading="lazy"></a>
-        <h3>Dashboard</h3>
-        <p>Four KPIs with sparklines, chart panels, a table and an activity feed.</p>
-        <div class="nt-row"><a data-demo href="examples/dashboard.html">Open the example</a><a data-demo href="layouts/dashboard.html">Starting file</a></div>
+        <h3 data-zh="数据看板">Dashboard</h3>
+        <p data-zh="四个关键指标配走势小线，图表面板、表格和动态列表。">Four KPIs with sparklines, chart panels, a table and an activity feed.</p>
+        <div class="nt-row"><a data-demo href="examples/dashboard.html" data-zh="打开案例">Open the example</a><a data-demo href="layouts/dashboard.html" data-zh="起步文件">Starting file</a></div>
       </div>
       <div class="shot">
         <a class="thumb" data-demo href="examples/landing.html"><img src="img/landing.png" alt="Landing page example for a notes app" loading="lazy"></a>
-        <h3>Landing page</h3>
-        <p>Hero with a line-art figure, features in two columns, two plans, questions and a closing call.</p>
-        <div class="nt-row"><a data-demo href="examples/landing.html">Open the example</a><a data-demo href="layouts/landing.html">Starting file</a></div>
+        <h3 data-zh="落地页">Landing page</h3>
+        <p data-zh="首屏配线稿插图，两栏卖点，两档价格，常见问题和收尾按钮。">Hero with a line-art figure, features in two columns, two plans, questions and a closing call.</p>
+        <div class="nt-row"><a data-demo href="examples/landing.html" data-zh="打开案例">Open the example</a><a data-demo href="layouts/landing.html" data-zh="起步文件">Starting file</a></div>
       </div>
       <div class="shot">
         <a class="thumb" data-demo href="examples/docs.html"><img src="img/docs.png" alt="Docs example: installing an SDK" loading="lazy"></a>
-        <h3>Docs</h3>
-        <p>Left navigation, numbered steps with code you can copy, and an "On this page" rail.</p>
-        <div class="nt-row"><a data-demo href="examples/docs.html">Open the example</a><a data-demo href="layouts/docs.html">Starting file</a></div>
+        <h3 data-zh="文档">Docs</h3>
+        <p data-zh="左侧导航，带复制按钮的分步代码，右侧「本页目录」。">Left navigation, numbered steps with code you can copy, and an "On this page" rail.</p>
+        <div class="nt-row"><a data-demo href="examples/docs.html" data-zh="打开案例">Open the example</a><a data-demo href="layouts/docs.html" data-zh="起步文件">Starting file</a></div>
       </div>
     </div>
   </section>
 
   <section class="nt-wrap nt-section" id="how" style="padding-top:0">
     <div class="nt-section-head">
-      <h2>How a page gets made</h2>
-      <p>The design system is copied in untouched, so the agent writes about 80 lines of content instead of 800 lines of CSS.</p>
+      <h2 data-zh="一个页面是怎么做出来的">How a page gets made</h2>
+      <p data-zh="设计系统原样复制进页面，AI 只写大约 80 行内容，不用写 800 行 CSS。">The design system is copied in untouched, so the agent writes about 80 lines of content instead of 800 lines of CSS.</p>
     </div>
     <div class="nt-split" style="align-items:start">
       <ol class="nt-steps" style="margin:0">
-        <li><h4>You ask in plain words</h4><p class="nt-muted">"Turn these notes into a 6-slide deck for Monday." The skill picks the layout.</p></li>
-        <li><h4>The agent writes the body</h4><p class="nt-muted">It fills the layout's blocks with your content, and only your content. Nothing you did not say gets added.</p></li>
-        <li class="is-current"><h4>The checker reads the page</h4><p class="nt-muted">Serif headlines, gradients, rows of three cards, all-caps labels and stock phrases are caught before you see them.</p></li>
-        <li><h4>The page opens</h4><p class="nt-muted">One file. It works offline, fits phones and prints cleanly.</p></li>
+        <li><h4 data-zh="你用大白话提要求">You ask in plain words</h4><p class="nt-muted" data-zh="「把这些笔记做成 6 页幻灯片，周一开会用。」版式由 skill 自己选。">"Turn these notes into a 6-slide deck for Monday." The skill picks the layout.</p></li>
+        <li><h4 data-zh="AI 写正文">The agent writes the body</h4><p class="nt-muted" data-zh="它把你给的内容填进版式，只填你给的。你没说过的事不会被加进去。">It fills the layout's blocks with your content, and only your content. Nothing you did not say gets added.</p></li>
+        <li class="is-current"><h4 data-zh="检查脚本过一遍">The checker reads the page</h4><p class="nt-muted" data-zh="衬线标题、渐变、一排三张卡片、全大写标签、营销套话，在你看到之前就被拦下。">Serif headlines, gradients, rows of three cards, all-caps labels and stock phrases are caught before you see them.</p></li>
+        <li><h4 data-zh="页面打开">The page opens</h4><p class="nt-muted" data-zh="一个文件。离线能看，手机能看，打印也整齐。">One file. It works offline, fits phones and prints cleanly.</p></li>
       </ol>
       <div class="nt-code" style="margin:0">
         <div class="nt-code-head">terminal</div>
@@ -867,27 +871,27 @@ FAIL  generated-elsewhere.html  (4 errors, 2 warnings)
   </section>
 
   <section class="nt-wrap nt-section" style="padding-top:0">
-    <div class="nt-section-head"><h2>What the checker catches</h2></div>
+    <div class="nt-section-head"><h2 data-zh="检查脚本会拦下什么">What the checker catches</h2></div>
     <div class="nt-cols" style="--cols:2; gap:var(--nt-7)">
       <div>
-        <h3 style="margin-bottom:var(--nt-2)">Fails the page</h3>
+        <h3 style="margin-bottom:var(--nt-2)" data-zh="直接判不通过">Fails the page</h3>
         <ul class="caught">
-          <li>Serif or italic headlines, Inter and Geist</li>
-          <li>Gradients, glow, blur and glass</li>
-          <li>Coloured bars down the left of a block</li>
-          <li>A row of exactly three cards</li>
-          <li>All-caps text, emoji, dark-mode styles</li>
-          <li>Leftover placeholders and a missing viewport</li>
+          <li data-zh="衬线或斜体标题，Inter 和 Geist 字体">Serif or italic headlines, Inter and Geist</li>
+          <li data-zh="渐变、发光、模糊和毛玻璃">Gradients, glow, blur and glass</li>
+          <li data-zh="区块左边的彩色竖条">Coloured bars down the left of a block</li>
+          <li data-zh="一排正好三张卡片">A row of exactly three cards</li>
+          <li data-zh="全大写文字、emoji、深色模式样式">All-caps text, emoji, dark-mode styles</li>
+          <li data-zh="没替换的占位符，缺少 viewport">Leftover placeholders and a missing viewport</li>
         </ul>
       </div>
       <div>
-        <h3 style="margin-bottom:var(--nt-2)">Warns about</h3>
+        <h3 style="margin-bottom:var(--nt-2)" data-zh="给出提醒">Warns about</h3>
         <ul class="caught">
-          <li>Raw colours that ignore the accent token</li>
-          <li>Heavy shadows</li>
-          <li>Too many cards or too many accents</li>
-          <li>More than two em dashes</li>
-          <li>Stock marketing phrases</li>
+          <li data-zh="绕开主题色变量的写死色值">Raw colours that ignore the accent token</li>
+          <li data-zh="过重的阴影">Heavy shadows</li>
+          <li data-zh="卡片或强调色用得太多">Too many cards or too many accents</li>
+          <li data-zh="破折号超过两个">More than two em dashes</li>
+          <li data-zh="营销套话">Stock marketing phrases</li>
         </ul>
       </div>
     </div>
@@ -895,14 +899,14 @@ FAIL  generated-elsewhere.html  (4 errors, 2 warnings)
 
   <section class="nt-wrap nt-section" id="install" style="padding-top:0">
     <div class="nt-section-head">
-      <h2>Install</h2>
-      <p>Pick one. After that, ask for a page the way you normally would.</p>
+      <h2 data-zh="安装">Install</h2>
+      <p data-zh="三选一。装好以后，像平时一样让 AI 做页面就行。">Pick one. After that, ask for a page the way you normally would.</p>
     </div>
     <div style="max-width:780px">
-      <div class="nt-code"><div class="nt-code-head">In Claude Code<button class="nt-copy" data-copy="#i1">Copy</button></div><pre id="i1">/plugin marketplace add kehaoran-ai/neatly
+      <div class="nt-code"><div class="nt-code-head"><span data-zh="在 Claude Code 里">In Claude Code</span><button class="nt-copy" data-copy="#i1" data-zh="复制">Copy</button></div><pre id="i1">/plugin marketplace add kehaoran-ai/neatly
 /plugin install neatly@neatly</pre></div>
-      <div class="nt-code"><div class="nt-code-head">Any agent that reads skills<button class="nt-copy" data-copy="#i2">Copy</button></div><pre id="i2">$ npx skills add kehaoran-ai/neatly</pre></div>
-      <div class="nt-code"><div class="nt-code-head">By hand<button class="nt-copy" data-copy="#i3">Copy</button></div><pre id="i3">$ git clone https://github.com/kehaoran-ai/neatly
+      <div class="nt-code"><div class="nt-code-head"><span data-zh="任何支持 skill 的工具">Any agent that reads skills</span><button class="nt-copy" data-copy="#i2" data-zh="复制">Copy</button></div><pre id="i2">$ npx skills add kehaoran-ai/neatly</pre></div>
+      <div class="nt-code"><div class="nt-code-head"><span data-zh="手动安装">By hand</span><button class="nt-copy" data-copy="#i3" data-zh="复制">Copy</button></div><pre id="i3">$ git clone https://github.com/kehaoran-ai/neatly
 $ cp -r neatly/skills/neatly ~/.claude/skills/</pre></div>
     </div>
   </section>
@@ -910,24 +914,49 @@ $ cp -r neatly/skills/neatly ~/.claude/skills/</pre></div>
   <section class="nt-wrap">
     <div class="nt-cta nt-grid">
       <div>
-        <h2>Ask for your next report and see what comes back</h2>
-        <p class="nt-muted" style="margin:12px 0 0">MIT licensed. One CSS file, one optional script, no build step.</p>
+        <h2 data-zh="下一份报告，让 AI 用 Neatly 做">Ask for your next report and see what comes back</h2>
+        <p class="nt-muted" style="margin:12px 0 0" data-zh="MIT 开源。一个 CSS 文件，一个可选的脚本，不需要构建。">MIT licensed. One CSS file, one optional script, no build step.</p>
       </div>
-      <a class="nt-btn nt-btn--primary nt-btn--lg" href="https://github.com/kehaoran-ai/neatly">View on GitHub</a>
+      <a class="nt-btn nt-btn--primary nt-btn--lg" href="https://github.com/kehaoran-ai/neatly" data-zh="去 GitHub 看看">View on GitHub</a>
     </div>
   </section>
 </main>
 
 <footer class="nt-footer">
   <div class="nt-wrap nt-row">
-    <span>Neatly · MIT</span>
+    <span data-zh="Neatly · MIT 开源">Neatly · MIT</span>
     <span class="nt-grow"></span>
     <a href="https://github.com/kehaoran-ai/neatly">GitHub</a>
-    <a href="https://github.com/kehaoran-ai">Ke Haoran</a>
+    <a href="https://github.com/kehaoran-ai" data-zh="柯浩然">Ke Haoran</a>
   </div>
 </footer>
 
 <script>
+/* Language: English or Chinese. Chinese browsers start in Chinese; the choice is remembered. */
+(function () {
+  var nodes = [].slice.call(document.querySelectorAll("[data-zh]"));
+  nodes.forEach(function (n) { n.dataset.en = n.innerHTML; });
+  var langButtons = [].slice.call(document.querySelectorAll("[data-lang]"));
+  var titles = { en: document.title, zh: "Neatly：让 AI 做的 HTML 页面看起来像设计师做的" };
+  function setLang(lang, remember) {
+    nodes.forEach(function (n) { n.innerHTML = lang === "zh" ? n.dataset.zh : n.dataset.en; });
+    document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+    document.title = titles[lang];
+    langButtons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.lang === lang ? "true" : "false"); });
+    if (remember) {
+      try { localStorage.setItem("neatly-lang", lang); } catch (e) {}
+      var p = new URLSearchParams(location.search); p.delete("lang");
+      history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : "") + location.hash);
+    }
+  }
+  langButtons.forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang, true); }); });
+  var saved = null;
+  try { saved = localStorage.getItem("neatly-lang"); } catch (e) {}
+  var q = new URLSearchParams(location.search).get("lang");
+  var start = q || saved || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+  if (start === "zh") setLang("zh", false);
+})();
+
 /* Accent picker: recolour this page and carry the colour into every demo link. */
 (function () {
   var buttons = [].slice.call(document.querySelectorAll(".swatches button"));
@@ -937,7 +966,7 @@ $ cp -r neatly/skills/neatly ~/.claude/skills/</pre></div>
     document.documentElement.style.setProperty("--nt-accent", "#" + hex);
     buttons.forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.accent === hex ? "true" : "false"); });
     links.forEach(function (l) { var u = l.getAttribute("href").split("?")[0]; l.setAttribute("href", hex === "2e4bff" ? u : u + "?accent=" + hex); });
-    if (push) history.replaceState(null, "", hex === "2e4bff" ? location.pathname : "?accent=" + hex);
+    if (push) { var p = new URLSearchParams(location.search); if (hex === "2e4bff") p.delete("accent"); else p.set("accent", hex); history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : "")); }
   }
   buttons.forEach(function (b) { b.addEventListener("click", function () { pick(b.dataset.accent, true); }); });
   var start = new URLSearchParams(location.search).get("accent");
