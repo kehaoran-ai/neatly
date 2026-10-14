@@ -4,7 +4,7 @@
     python3 make.py <layout> <body.html> <out.html> [--title "Page title"] [--accent e4572e] [--system warm] [--lang zh-CN]
 
 <layout>    report, deck, dashboard, landing, docs or personal
---system    neatly (default), editorial, warm or night
+--system    neatly (default), editorial, warm or night, or a path to your own .css
 <body.html> the markup that goes inside <body>, nothing else
 <out.html>  the page to write; it is overwritten
 
@@ -41,7 +41,8 @@ def main():
         sys.exit(f"Unknown layout {a.layout!r}. Pick one of: {', '.join(p.stem for p in sorted(LAYOUTS.glob('*.html')))}")
     page = layout.read_text(encoding="utf-8")
     if a.system != "neatly":
-        sys_css = SYSTEMS / f"{a.system}.css"
+        # A bundled system by name, or your own system file by path.
+        sys_css = Path(a.system) if a.system.endswith(".css") else SYSTEMS / f"{a.system}.css"
         if not sys_css.is_file():
             sys.exit(f"Unknown design system {a.system!r}. Pick one of: neatly, {', '.join(p.stem for p in sorted(SYSTEMS.glob('*.css')))}")
         css = sys_css.read_text(encoding="utf-8").strip()
