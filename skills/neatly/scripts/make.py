@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Build a Neatly page from a layout and the body you wrote, then check it.
 
-    python3 make.py <layout> <body.html> <out.html> [--title "Page title"] [--accent e4572e]
+    python3 make.py <layout> <body.html> <out.html> [--title "Page title"] [--accent e4572e] [--system warm]
 
-<layout>    report, deck, dashboard, landing or docs
+<layout>    report, deck, dashboard, landing, docs or personal
+--system    neatly (default), editorial, warm or night
 <body.html> the markup that goes inside <body>, nothing else
 <out.html>  the page to write; it is overwritten
 
@@ -19,6 +20,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 LAYOUTS = HERE.parent / "layouts"
+SYSTEMS = HERE.parent / "systems"
+SYSTEM_BLOCK = re.compile(r"(/\* neatly-system:start \*/).*?(/\* neatly-system:end \*/)", re.S)
 
 
 def main():
@@ -28,12 +31,20 @@ def main():
     ap.add_argument("out")
     ap.add_argument("--title")
     ap.add_argument("--accent", help="hex colour without #, for example e4572e")
+    ap.add_argument("--system", default="neatly", help="design system: neatly, " + ", ".join(p.stem for p in sorted(SYSTEMS.glob("*.css"))))
+    ap.add_argument("--no-check", action="store_true", help="skip the checker (used by live previews)")
     a = ap.parse_args()
 
     layout = LAYOUTS / f"{a.layout}.html"
     if not layout.is_file():
         sys.exit(f"Unknown layout {a.layout!r}. Pick one of: {', '.join(p.stem for p in sorted(LAYOUTS.glob('*.html')))}")
     page = layout.read_text(encoding="utf-8")
+    if a.system != "neatly":
+        sys_css = SYSTEMS / f"{a.system}.css"
+        if not sys_css.is_file():
+            sys.exit(f"Unknown design system {a.system!r}. Pick one of: neatly, {', '.join(p.stem for p in sorted(SYSTEMS.glob('*.css')))}")
+        css = sys_css.read_text(encoding="utf-8").strip()
+        page = SYSTEM_BLOCK.sub(lambda m: m.group(1) + "\n" + css + "\n" + m.group(2), page, count=1)
     body = Path(a.body).read_text(encoding="utf-8").strip()
     # Accept a body that still has its own <body> wrapper.
     body = re.sub(r"^\s*<body[^>]*>|</body>\s*$", "", body).strip()
@@ -51,6 +62,8 @@ def main():
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page, encoding="utf-8")
     print(f"wrote {out}", flush=True)
+    if a.no_check:
+        return 0
     return subprocess.call([sys.executable, str(HERE / "check.py"), str(out)])
 
 

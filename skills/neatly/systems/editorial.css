@@ -1,0 +1,23 @@
+/* Neatly design system: editorial. Big confident type, hairline rules, square corners.
+   Loaded after neatly.css; only overrides tokens and a few components. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap");
+:root {
+  --nt-accent: #e4572e;
+  --nt-sans: "Archivo", ui-sans-serif, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --nt-paper: #f3f1ec; --nt-surface: #f9f8f5; --nt-sunken: #ebe8e1;
+  --nt-line: #d9d6ce; --nt-line-strong: #141414;
+  --nt-ink: #141414; --nt-ink-2: #4b4a47; --nt-ink-3: #8a8882;
+  --nt-on-ink: #f3f1ec; --nt-ink-hover: #333; --nt-hover: #f1efe9; --nt-backdrop: #dcd9d1;
+  --nt-h1: 64px; --nt-lh-h1: 66px; --nt-h2: 36px; --nt-lh-h2: 40px; --nt-display: 96px; --nt-lh-display: 92px;
+  --nt-radius-sm: 0px; --nt-radius: 2px; --nt-radius-lg: 2px;
+  --nt-shadow: none; --nt-shadow-lift: none;
+}
+h1, h2, .nt-display, .nt-hero h1 { font-weight: 900; letter-spacing: -0.035em; }
+.nt-topbar { border-bottom: 2px solid var(--nt-ink); }
+.nt-card, .nt-table-wrap, .nt-code, .nt-panel, .nt-price { border-color: var(--nt-ink); }
+.nt-btn { border-color: var(--nt-ink); }
+.nt-kicker { color: var(--nt-ink); font-weight: 700; }
+.nt-section-head h2, .nt-prose h2 { border-top: 2px solid var(--nt-ink); padding-top: 18px; }
+.nt-metrics { border-top: 2px solid var(--nt-ink); border-bottom: 2px solid var(--nt-ink); }
+.nt-tag { border-radius: 0; }
+@media (max-width: 640px) { :root { --nt-h1: 38px; --nt-lh-h1: 42px; --nt-h2: 28px; --nt-lh-h2: 32px; --nt-display: 50px; --nt-lh-display: 52px; } }

@@ -155,4 +155,9 @@ Sparkline: `<svg class="nt-spark is-accent" data-spark="[3,4,6,5,8]"></svg>`. Le
 - Deck: `body.nt-deck`, `section.nt-slide` (first one `is-active`), `.nt-slide-body`, `.nt-slide-foot` with an empty `.nt-num` (filled in as 03 / 08), `.nt-deck-hint`. The layout has four slide patterns: title, numbers, chart, and a closing statement for an ask or decision. A plan with goals that have no numbers fits `.nt-steps` on a slide.
 - Dashboard: `.nt-app`, `.nt-side` (links with `aria-current="page"`, `.nt-side-label`, `.nt-count`, `.nt-side-foot`), `.nt-main`, `.nt-main-head`, `.nt-panel` (`-head`, `-body`), `.nt-kpis` > `.nt-kpi` (`-label`, `-value`), `.nt-board`, `.nt-hbar` with `style="--v:38%"`, `.nt-feed`.
 - Landing: `.nt-nav`, `.nt-hero`, `.nt-actions`, `.nt-install`, `.nt-section-head`, `.nt-features` > `.nt-feature`, `.nt-pricing` > `.nt-price` (`-amount`), `.nt-checks`, `.nt-cta`.
+- Personal: `.nt-profile` (with `.nt-role`, `.nt-bio`, `.nt-actions`, and `.nt-portrait` as an `<img>` or `is-initials`), `.nt-works` > `a.nt-work` (`.nt-work-thumb`, `.nt-work-meta`), `ol.nt-timeline` (`time` + `h4` + `p`), `.nt-linklist`, `a.nt-mailto`.
 - Docs: `.nt-search`, `.nt-docs`, `.nt-docs-nav`, `.nt-docs-main`, `.nt-crumbs`, `.nt-pager`, and `.nt-toc[data-toc]` as the right rail.
+
+## Design systems
+
+`systems/editorial.css`, `systems/warm.css` and `systems/night.css` load after `neatly.css` (inside the `neatly-system` block of the page) and only change tokens plus a few component details. Write pages against the tokens and classes above and they work in every system. Never hard-code colours in page CSS: in `night` the paper is dark and the ink is light.

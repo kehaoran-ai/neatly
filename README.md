@@ -5,7 +5,7 @@
 **HTML pages from your AI that look like a person designed them.**
 
 A skill for Claude Code, Codex, Cursor and any agent that reads skills.<br>
-Reports, slide decks, dashboards, landing pages and docs, in one calm visual system.
+Reports, slide decks, dashboards, landing pages, docs and personal sites, in four calm design systems.
 
 [Live demo](https://neatly.kehaoran.ai) · [Examples](#five-layouts-one-look) · [Install](#install) · [简体中文](README.zh-CN.md)
 
@@ -30,8 +30,8 @@ Ask any model for an HTML report and you get the same page everyone gets: a purp
 
 Neatly gives it a system instead:
 
-- **One look.** Neutral greys, one sans typeface, line-art diagrams on graph paper, and a single accent colour that you can change in one line.
-- **Five layouts to start from**, so the agent writes content instead of inventing structure.
+- **Four design systems, one set of components.** Neatly (neutral grey, graph-paper line art), Editorial (big black type, hairline rules), Warm (cream paper, round shapes) and Night (dark and crisp). Every layout works in every system, and the accent colour changes in one line.
+- **Six layouts to start from**, so the agent writes content instead of inventing structure.
 - **Writing rules.** Headlines state the finding with a number. No slogans, no stock phrases, nothing the user did not say.
 - **A checker** that fails the page for the usual tells before you ever see it.
 
@@ -145,7 +145,7 @@ Run it on pages that were not made with Neatly too. It is a quick way to see why
 
 **Can I change the font?** Set `--nt-sans` the same way as the accent. Keep it a sans; the checker fails serif headlines on purpose.
 
-**Is there a dark mode?** No. One mode, done well, is the point.
+**Is there a dark mode?** Use the Night design system: `make.py ... --system night`. Pages don't switch with the operating system; each page has one look, chosen on purpose.
 
 ## What is inside
 
@@ -154,11 +154,12 @@ skills/neatly/
   SKILL.md              how the agent uses Neatly
   neatly.css            the visual system, inlined into every page
   neatly.js             charts, slides, copy buttons, contents (optional)
-  layouts/              five starting files
+  layouts/              six starting files
+  systems/              editorial, warm and night design systems
   reference/            component reference
   scripts/make.py       builds a page from a layout and a body
   scripts/check.py      the checker
-examples/               the five finished pages
+examples/               finished pages for every layout
 site/                   the demo site
 ```
 

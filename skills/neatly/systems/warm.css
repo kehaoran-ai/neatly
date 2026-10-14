@@ -1,0 +1,20 @@
+/* Neatly design system: warm. Cream paper, soft round shapes, friendly type.
+   Loaded after neatly.css; only overrides tokens and a few components. */
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+:root {
+  --nt-accent: #d9773b;
+  --nt-sans: "Nunito", ui-sans-serif, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --nt-paper: #fbf6ee; --nt-surface: #fffdf9; --nt-sunken: #f4ebde;
+  --nt-line: #efe5d8; --nt-line-strong: #e2d4c3;
+  --nt-ink: #2b2420; --nt-ink-2: #6b5f57; --nt-ink-3: #9a8d82;
+  --nt-on-ink: #fffdf9; --nt-ink-hover: #44392f; --nt-hover: #fbf3e8; --nt-backdrop: #efe4d4;
+  --nt-text: 16.5px;
+  --nt-radius-sm: 12px; --nt-radius: 18px; --nt-radius-lg: 26px;
+  --nt-shadow: 0 1px 2px rgb(120 80 40 / .06), 0 2px 8px rgb(120 80 40 / .05);
+  --nt-shadow-lift: 0 2px 4px rgb(120 80 40 / .06), 0 22px 40px -22px rgb(120 80 40 / .3);
+}
+h1, h2, .nt-display { font-weight: 900; letter-spacing: -0.015em; }
+.nt-btn { border-radius: 999px; }
+.nt-btn--primary { background: var(--nt-accent); border-color: var(--nt-accent); color: #fff; }
+.nt-btn--primary:hover { background: var(--nt-accent-ink); }
+.nt-brand::before { border-radius: 50%; }

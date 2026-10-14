@@ -37,6 +37,10 @@ pages = sorted(list((SKILL / "layouts").glob("*.html")) + list((ROOT / "examples
 for p in pages:
     t = p.read_text(encoding="utf-8")
     n = inject(inject(t, "neatly.css", CSS), "neatly.js", JS)
+    if "neatly-system:start" not in n:
+        # The design-system block goes right after the <style> that holds neatly.css.
+        end = n.index("</style>", n.index("/* neatly.css:end */")) + len("</style>")
+        n = n[:end] + "\n<style>\n/* neatly-system:start */\n/* neatly-system:end */\n</style>" + n[end:]
     n = signpost(n)
     if n != t:
         p.write_text(n, encoding="utf-8")

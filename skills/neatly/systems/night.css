@@ -1,0 +1,19 @@
+/* Neatly design system: night. Dark, crisp, product-studio feel.
+   Loaded after neatly.css; only overrides tokens and a few components. */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+:root {
+  color-scheme: dark;
+  --nt-accent: #7c8cff;
+  --nt-accent-ink: color-mix(in oklab, var(--nt-accent) 72%, #ffffff);
+  --nt-accent-soft: color-mix(in oklab, var(--nt-accent) 18%, var(--nt-surface));
+  --nt-sans: "Manrope", ui-sans-serif, -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --nt-paper: #0c0d10; --nt-surface: #15171c; --nt-sunken: #1c1f25;
+  --nt-line: #262a31; --nt-line-strong: #383c45;
+  --nt-ink: #f3f4f6; --nt-ink-2: #a8abb3; --nt-ink-3: #71747d;
+  --nt-on-ink: #0c0d10; --nt-ink-hover: #d9dbe0; --nt-hover: #1a1d23; --nt-backdrop: #050608;
+  --nt-good: #4ade80; --nt-good-soft: #12291c; --nt-bad: #f87171; --nt-bad-soft: #2d1515; --nt-warn: #fbbf24; --nt-warn-soft: #2b2310;
+  --nt-shadow: 0 0 0 1px var(--nt-line);
+  --nt-shadow-lift: 0 0 0 1px var(--nt-line-strong), 0 24px 48px -24px rgb(0 0 0 / .8);
+}
+h1, h2, .nt-display { font-weight: 800; letter-spacing: -0.025em; }
+::selection { background: var(--nt-accent); color: #fff; }

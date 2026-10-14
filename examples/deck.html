@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Neatly page: your content goes in the body element, which opens on line 755. Everything above it is the design system: leave it as it is, except the title. -->
+<!-- Neatly page: your content goes in the body element, which opens on line 802. Everything above it is the design system: leave it as it is, except the title. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -25,8 +25,8 @@
   /* The one colour. Links, the current item, the focus ring, the one line
      in a diagram you want people to look at. Never structure, never a big button. */
   --nt-accent: #2e4bff;
-  --nt-accent-soft: color-mix(in oklab, var(--nt-accent) 9%, #ffffff);
-  --nt-accent-line: color-mix(in oklab, var(--nt-accent) 38%, #ffffff);
+  --nt-accent-soft: color-mix(in oklab, var(--nt-accent) 9%, var(--nt-surface));
+  --nt-accent-line: color-mix(in oklab, var(--nt-accent) 38%, var(--nt-surface));
   --nt-accent-ink: color-mix(in oklab, var(--nt-accent) 74%, #000000);
 
   /* Paper and ink. Structure is always neutral. */
@@ -38,6 +38,10 @@
   --nt-ink: #171717;          /* text, primary button */
   --nt-ink-2: #525252;        /* secondary text */
   --nt-ink-3: #767676;        /* captions, labels, crop marks */
+  --nt-on-ink: #ffffff;       /* text on an ink-filled button */
+  --nt-ink-hover: #2e2e2e;    /* primary button hover */
+  --nt-hover: #fafafa;        /* row hover, code header */
+  --nt-backdrop: #e6e6e6;     /* behind the slides of a deck */
 
   /* Status, used sparingly */
   --nt-good: #1f8a4c;
@@ -173,8 +177,8 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 .nt-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: var(--nt-radius-sm); border: 1px solid var(--nt-line-strong); background: var(--nt-surface); color: var(--nt-ink); font: 600 var(--nt-text-sm)/1 var(--nt-sans); text-decoration: none; cursor: pointer; white-space: nowrap; box-shadow: var(--nt-shadow); transition: background var(--nt-fast) var(--nt-ease), transform var(--nt-fast) var(--nt-ease), border-color var(--nt-fast); }
 .nt-btn:hover { background: var(--nt-sunken); text-decoration: none; }
 .nt-btn:active { transform: translateY(1px); }
-.nt-btn--primary { background: var(--nt-ink); border-color: var(--nt-ink); color: #fff; }
-.nt-btn--primary:hover { background: #2e2e2e; }
+.nt-btn--primary { background: var(--nt-ink); border-color: var(--nt-ink); color: var(--nt-on-ink); }
+.nt-btn--primary:hover { background: var(--nt-ink-hover); }
 .nt-btn--quiet { background: transparent; border-color: transparent; box-shadow: none; }
 .nt-btn--quiet:hover { background: var(--nt-sunken); }
 .nt-btn--sm { height: 32px; padding: 0 12px; font-size: var(--nt-text-xs); }
@@ -221,7 +225,7 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 .nt-table tr:last-child td { border-bottom: 0; }
 .nt-table .is-num { text-align: right; }
 .nt-table code { white-space: nowrap; }
-.nt-table tbody tr:hover td { background: #fafafa; }
+.nt-table tbody tr:hover td { background: var(--nt-hover); }
 
 /* Segmented control */
 .nt-seg { display: inline-flex; gap: 2px; padding: 3px; background: var(--nt-sunken); border-radius: var(--nt-radius-sm); }
@@ -230,7 +234,7 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 
 /* Code block with a header line */
 .nt-code { margin: var(--nt-5) 0; border: 1px solid var(--nt-line); border-radius: var(--nt-radius); background: var(--nt-surface); overflow: hidden; box-shadow: var(--nt-shadow); }
-.nt-code-head { display: flex; align-items: center; gap: 8px; padding: 0 8px 0 14px; height: 38px; border-bottom: 1px solid var(--nt-line); font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-3); background: #fafafa; }
+.nt-code-head { display: flex; align-items: center; gap: 8px; padding: 0 8px 0 14px; height: 38px; border-bottom: 1px solid var(--nt-line); font: 500 var(--nt-text-xs)/1 var(--nt-mono); color: var(--nt-ink-3); background: var(--nt-hover); }
 .nt-code-head .nt-copy { margin-left: auto; }
 .nt-code pre { margin: 0; padding: 14px 16px; overflow-x: auto; font-size: 13.5px; line-height: 22px; color: var(--nt-ink); }
 .nt-code .c { color: var(--nt-ink-3); }
@@ -377,7 +381,7 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 }
 
 /* ---------- 10 · Layout: deck (16:9 slides, arrows to move, prints one slide per page) ---------- */
-.nt-deck { background: #e6e6e6; overflow: hidden; height: 100vh; }
+.nt-deck { background: var(--nt-backdrop); overflow: hidden; height: 100vh; }
 .nt-deck .nt-slide { position: fixed; left: 50%; top: 50%; width: 1280px; height: 720px; transform: translate(-50%, -50%) scale(var(--nt-scale, 1)); background: var(--nt-paper); padding: 72px 88px 88px; display: none; flex-direction: column; box-shadow: 0 1px 0 rgb(23 23 26 / .05), 0 10px 10px -8px rgb(23 23 26 / .2); font-size: 21px; line-height: 33px; }
 .nt-deck .nt-slide.is-active { display: flex; }
 .nt-slide h1 { font: 800 72px/80px var(--nt-sans); max-width: 18ch; }
@@ -542,7 +546,46 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
   .nt-docs-main h1 { font-size: 28px; line-height: 36px; }
 }
 
-/* ---------- 14 · Print ---------- */
+/* ---------- 14 · Layout: personal homepage ---------- */
+.nt-profile { padding-block: var(--nt-9) var(--nt-8); }
+.nt-profile .nt-wrap { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--nt-7); align-items: end; }
+.nt-profile h1 { font-size: var(--nt-display); line-height: var(--nt-lh-display); max-width: 14ch; }
+.nt-role { display: inline-flex; align-items: center; gap: 8px; margin-bottom: var(--nt-4); font: 600 var(--nt-text-sm)/1 var(--nt-sans); color: var(--nt-ink-2); }
+.nt-role .nt-dot { color: var(--nt-good); }
+.nt-bio { margin-top: var(--nt-5); max-width: 38em; font-size: var(--nt-text-lg); line-height: var(--nt-lh-lg); color: var(--nt-ink-2); }
+.nt-profile .nt-actions { margin-top: var(--nt-6); }
+.nt-portrait { width: 220px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--nt-radius-lg); border: 1px solid var(--nt-line); background: var(--nt-sunken); box-shadow: var(--nt-shadow-lift); }
+.nt-portrait.is-initials { display: grid; place-items: center; font: 800 72px/1 var(--nt-sans); color: var(--nt-accent-ink); background: var(--nt-accent-soft); }
+.nt-works { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-6) var(--nt-5); }
+.nt-work { display: block; color: inherit; text-decoration: none; }
+.nt-work-thumb { aspect-ratio: 16 / 10; border-radius: var(--nt-radius-lg); overflow: hidden; border: 1px solid var(--nt-line); background: var(--nt-sunken); display: grid; place-items: center; transition: transform var(--nt-fast) var(--nt-ease); }
+.nt-work-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.nt-work-thumb svg { width: 72%; height: auto; }
+a.nt-work:hover .nt-work-thumb { transform: translateY(-3px); }
+.nt-work-meta { display: flex; gap: var(--nt-3); margin-top: var(--nt-4); font-size: var(--nt-text-sm); color: var(--nt-ink-3); }
+.nt-work h3 { margin-top: 4px; }
+.nt-work p { margin: 6px 0 0; color: var(--nt-ink-2); }
+.nt-timeline { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--nt-line); }
+.nt-timeline li { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: var(--nt-5); padding: var(--nt-5) 0; margin: 0; border-bottom: 1px solid var(--nt-line); }
+.nt-timeline time { font: 500 var(--nt-text-sm)/1.6 var(--nt-sans); color: var(--nt-ink-3); font-variant-numeric: tabular-nums; }
+.nt-timeline h4 { margin: 0; }
+.nt-timeline p { margin: 4px 0 0; color: var(--nt-ink-2); }
+.nt-linklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--nt-3); }
+.nt-linklist a { display: flex; align-items: center; gap: var(--nt-3); padding: 16px 18px; border: 1px solid var(--nt-line); border-radius: var(--nt-radius); background: var(--nt-surface); color: var(--nt-ink); text-decoration: none; font-weight: 600; transition: border-color var(--nt-fast); }
+.nt-linklist a:hover { border-color: var(--nt-line-strong); }
+.nt-linklist svg { width: 20px; height: 20px; flex: none; color: var(--nt-accent-ink); }
+.nt-linklist small { margin-left: auto; font-weight: 500; color: var(--nt-ink-3); }
+.nt-mailto { display: inline-block; margin-top: var(--nt-4); font: 800 clamp(26px, 4.5vw, 44px)/1.2 var(--nt-sans); color: var(--nt-ink); text-decoration: none; word-break: break-all; }
+.nt-mailto:hover { color: var(--nt-accent-ink); }
+@media (max-width: 860px) {
+  .nt-profile .nt-wrap { grid-template-columns: minmax(0, 1fr); }
+  .nt-profile .nt-portrait { order: -1; width: 140px; }
+  .nt-works, .nt-linklist { grid-template-columns: minmax(0, 1fr); }
+  .nt-timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .nt-profile { padding-block: var(--nt-7); }
+}
+
+/* ---------- 15 · Print ---------- */
 @media print {
   body { background: #fff; }
   .nt-noprint { display: none !important; }
@@ -571,6 +614,10 @@ kbd { display: inline-block; min-width: 1.8em; text-align: center; padding: 0 6p
 .plan b small { font: 500 18px/1 var(--nt-sans); color: var(--nt-ink-3); }
 .plan p { margin: 16px 0 0; font-size: 18px; line-height: 28px; color: var(--nt-ink-2); }
 .window { border: var(--nt-stroke) solid var(--nt-ink); border-radius: 10px; background: var(--nt-surface); height: 440px; overflow: hidden; }
+</style>
+<style>
+/* neatly-system:start */
+/* neatly-system:end */
 </style>
 <script>
 /* neatly.js:start */

@@ -15,6 +15,7 @@ from pathlib import Path
 
 CSS_BLOCK = re.compile(r"/\* neatly\.css:start \*/.*?/\* neatly\.css:end \*/", re.S)
 JS_BLOCK = re.compile(r"/\* neatly\.js:start \*/.*?/\* neatly\.js:end \*/", re.S)
+SYS_BLOCK = re.compile(r"/\* neatly-system:start \*/.*?/\* neatly-system:end \*/", re.S)
 
 SERIF = re.compile(r"font(?:-family)?\s*:[^;}]*\b(serif|Georgia|Times|Playfair|Instrument Serif|Fraunces|Lora|Merriweather|DM Serif|Cormorant|Libre Baskerville)\b", re.I)
 BANNED_FONTS = re.compile(r"font(?:-family)?\s*:[^;}]*\b(Inter|Geist|Poppins|Space Grotesk)\b", re.I)
@@ -74,7 +75,7 @@ def check(path):
     errors, warns = [], []
     if "neatly.css:start" not in raw:
         errors.append("neatly.css is not inlined. Start from a file in layouts/ so the markers are there.")
-    page = CSS_BLOCK.sub("", JS_BLOCK.sub("", raw))
+    page = SYS_BLOCK.sub("", CSS_BLOCK.sub("", JS_BLOCK.sub("", raw)))
     css = "\n".join(re.findall(r"<style[^>]*>(.*?)</style>", page, re.S)) + "\n" + "\n".join(re.findall(r'style="([^"]*)"', page))
 
     p = Page()
