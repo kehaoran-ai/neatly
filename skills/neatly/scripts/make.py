@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a Neatly page from a layout and the body you wrote, then check it.
 
-    python3 make.py <layout> <body.html> <out.html> [--title "Page title"] [--accent e4572e] [--system warm]
+    python3 make.py <layout> <body.html> <out.html> [--title "Page title"] [--accent e4572e] [--system warm] [--lang zh-CN]
 
 <layout>    report, deck, dashboard, landing, docs or personal
 --system    neatly (default), editorial, warm or night
@@ -33,6 +33,7 @@ def main():
     ap.add_argument("--accent", help="hex colour without #, for example e4572e")
     ap.add_argument("--system", default="neatly", help="design system: neatly, " + ", ".join(p.stem for p in sorted(SYSTEMS.glob("*.css"))))
     ap.add_argument("--no-check", action="store_true", help="skip the checker (used by live previews)")
+    ap.add_argument("--lang", help="page language for <html lang>, e.g. zh-CN, en, ja")
     a = ap.parse_args()
 
     layout = LAYOUTS / f"{a.layout}.html"
@@ -51,10 +52,15 @@ def main():
 
     m = re.compile(r"(<body[^>]*>)(.*)(</body>)", re.S).search(page, page.index("</head>"))
     if a.accent:
+        a.accent = a.accent.lstrip("#")
         if not re.fullmatch(r"[0-9a-fA-F]{3,8}", a.accent):
             sys.exit("--accent takes a hex colour without #, for example e4572e")
         body = f"<style>:root {{ --nt-accent: #{a.accent}; }}</style>\n{body}"
     page = page[:m.start()] + m.group(1) + "\n" + body + "\n" + m.group(3) + page[m.end():]
+    if a.lang:
+        if not re.fullmatch(r"[A-Za-z]{2,3}(-[A-Za-z0-9]{2,8})*", a.lang):
+            sys.exit("--lang takes a language tag such as zh-CN or en")
+        page = re.sub(r'<html lang="[^"]*">', f'<html lang="{a.lang}">', page, count=1)
     if a.title:
         page = re.sub(r"<title>[^<]*</title>", lambda _: f"<title>{escape(a.title)}</title>", page, count=1)
 

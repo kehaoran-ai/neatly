@@ -43,7 +43,7 @@ Write your page's body (everything that goes inside `<body>`) to a scratch file,
 python3 <skill-dir>/scripts/make.py report body.html ./q3-review.html --title "Q3 product review"
 ```
 
-`make.py` copies the layout's design system, adds the chosen system (`--system warm`), puts your body in, sets the title, and runs the checker. Add `--accent e4572e` for a brand colour. Switching systems later is one rebuild from the same body file. To revise, edit the page directly or rebuild from the body file. Page-specific CSS goes in a `<style>` at the top of the body and uses `var(--nt-*)` tokens only.
+`make.py` copies the layout's design system, adds the chosen system (`--system warm`), puts your body in, sets the title, and runs the checker. Add `--accent e4572e` for a brand colour. Switching systems later is one rebuild from the same body file. For a page not in English, add `--lang zh-CN` (or the right tag) so browsers and screen readers know the language. To revise, edit the page directly or rebuild from the body file. Page-specific CSS goes in a `<style>` at the top of the body and uses `var(--nt-*)` tokens only.
 
 Restyling an existing page: copy the closest layout, then move the content into it. Do not paste `neatly.css` on top of the old page's CSS.
 
